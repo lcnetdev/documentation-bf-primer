@@ -18,4 +18,5 @@ Combining the flexibility provided by a largely unconstrained vocabulary with th
 
 [Back to Table of Contents](index.md)
 
+
 [Previous Page: Special Terminology](introduction/special-terminology.md) | [Next Page: BIBFRAME and Content Models (such as RDA)](bibframe-and-content-models-such-as-rda.md)
