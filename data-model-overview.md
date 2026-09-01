@@ -1,0 +1,21 @@
+# Data Model Overview
+
+When a resource is cataloged, the resulting BIBFRAME description includes information elements such as the author, what the resource is about, various published forms, and information about copies of the resource.
+
+The very core of the BIBFRAME model is composed of two classes, or resource types: a Work and an Instance. It is generally impossible to represent a “complete” or ”full” bibliographic resource without one of each of these two types. The Instance represents an example or manifestation of a Work. Although an Instance can be electronic, an Instance consumes space or has some mass, even if the measurement is in bytes. The physical paperback someone holds or the mp3 audio someone listens to are examples of Instances. Those Instances are “instances of” BIBFRAME Work resources, which represent the more conceptual aspects of a bibliographic resource and commonalities of the Work’s expression.
+
+A BF Work often includes information about whom contributed to the Work (and how), the genre or form or nature of the Work (Fiction or moving image), what the Work may be about (the subject(s) of the Work), relationships to other Works (and their nature), etc. Instances of a Work capture details that are specific to the Instance such as page numbers, specific identifiers (ISBNs), carrier information, etc.
+
+Heretofore, bibliographic resources were often compound records that brought all of these aspects together. Either each instance or manifestation was presented in a single record, which would result in the work-level information being duplicated in multiple records, or information about multiple instances or manifestations was presented in a single record, which resulted in a lack of clarity as to what, exactly, the resource described. By handling these different aspects of a bibliographic resource distinctly, and relating them to each other, it is possible to reduce the duplication while enhancing clarity.
+
+It is also a more contemporary way to describe resources. Consider, for example, a music album sold on a popular website such as Amazon or Presto Music. It may be possible to acquire the album as a CD or vinyl record or a digital download. The user is frequently presented a single page about the album that is mostly about what would be deemed Work-level information with options to acquire the various manifestations – or Instances - of that album. The same holds for a book: hardback or paperback.
+
+The model is also largely unconstrained, and increasingly so. Although earlier iterations of the BIBFRAME model and vocabulary asserted more constraints on the data (or inferencing rules), experience has shown that the sheer variation of information found in bibliographic description, especially when considering all formats, has favored a loosening of constraints to increase flexibility in the model. That is certainly the primary reason. But the more “constraining” vocabulary definitions also resulted in conceptual misunderstandings by those less versed in the mechanics of OWL (Web Ontology Language) and RDF inferencing rules. For example, if the range of a property such as bf:intendedAudience was defined to be an individual of bf:IntendedAudience, there was, in some cases, an assumption that any individual used with bf:intendedAudience *needed to be defined as* an individual of bf:IntendedAudience even though the assertion of such a range in the BIBFRAME vocabulary creates no such technical expectation. In other cases, the declared range risked creating an inference in the data that was undesirable. In short, stricter ontological definitions were perceived, for various reasons, as an impediment to adoption.
+
+Combining the flexibility provided by a largely unconstrained vocabulary with the two core, elemental resource types – Work and Instance – make the BIBFRAME model a relatively simple concept to implement and align nicely with contemporary modeling strategies for the types of material found in cultural heritage organizations. This simplicity is designed to foster data exchange by not wedding BIBFRAME to any specific content model.
+
+---
+
+[Back to Table of Contents](index.md)
+
+[Previous Page: Special Terminology](introduction/special-terminology.md) | [Next Page: BIBFRAME and Content Models (such as RDA)](bibframe-and-content-models-such-as-rda.md)
