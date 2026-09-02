@@ -1,12 +1,11 @@
 # Identifiers
 
-*bf:identifiedBy/bf:Identifier*
+<!-- LIST_STYLE: compact single-column no-bullet -->
 
-<!-- LIST_STYLE: compact two-column -->
-
-- *rdf:value*
-- [*bf:qualifier*](https://id.loc.gov/ontologies/bibframe.html#p_qualifier)
-- [*bf:status*](https://id.loc.gov/ontologies/bibframe.html#p_status)
+- *bf:identifiedBy/bf:Identifier*
+- &nbsp;&nbsp;&nbsp;&nbsp;*rdf:value*
+- &nbsp;&nbsp;&nbsp;&nbsp;[*bf:qualifier*](https://id.loc.gov/ontologies/bibframe.html#p_qualifier)
+- &nbsp;&nbsp;&nbsp;&nbsp;[*bf:status*](https://id.loc.gov/ontologies/bibframe.html#p_status)
 
 A BIBFRAME resource may have several identifiers. An Instance may have, for example, an ISBN, and a Work might have an ISSN or cluster ISSN, such as an ISSN-H. In bibliographic description, most Identifiers are associated with specific Instances or are part of administrative metadata.
 

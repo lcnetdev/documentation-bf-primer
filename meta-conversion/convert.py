@@ -46,9 +46,14 @@ Pipeline
    the files, images, index pages and manifest. Every page ends with a
    back-to-TOC link and previous/next links; each index.md additionally ends
    with a <!-- NAV_ORDER ... --> comment listing its entries in TOC order.
+   Every list is written tight (no blank lines between items) so items don't
+   render as paragraphs inside <li>.
    Runs of indented single-token lines (property lists) become tight bullet
-   lists preceded by <!-- LIST_STYLE: compact two-column --> for the renderer;
-   bf:/bflc: terms in them are linked to the ontology page anchors.
+   lists preceded by <!-- LIST_STYLE: compact two-column --> for the renderer,
+   and the italic property paths that open a page become a tight bullet list
+   preceded by <!-- LIST_STYLE: compact single-column no-bullet -->, where the
+   lines after a path ending in a class are indented under it; bf:/bflc:
+   terms in either kind are linked to the ontology page anchors.
 """
 
 from __future__ import annotations
@@ -94,9 +99,17 @@ WORD_AUTO_ALT_RE = re.compile(r"AI-generated content may be incorrect", re.I)
 # Indented list lines that consist of a single vocabulary term become links to the ontology site.
 TERM_RE = re.compile(r"^(bf|bflc):([A-Za-z][A-Za-z0-9]*)$")
 TOKEN_RE = re.compile(r"^(?!https?://)\S+$")  # an indented single token (a property name, not a URL)
-# Runs of 2+ indented single-token lines become a tight bullet list preceded by this
-# marker so the renderer can style them (single spacing, two columns).
-LIST_STYLE_MARK = "<!-- LIST_STYLE: compact two-column -->"
+# Property lists become tight bullet lists preceded by a marker that tells the renderer how
+# to lay them out: runs of 2+ indented single-token lines get TERM_LIST_STYLE, and the italic
+# property paths that open a page (bf:language/bf:Language ...) get PATH_LIST_STYLE.
+LIST_STYLE_MARK = "<!-- LIST_STYLE: {} -->"
+TERM_LIST_STYLE = "compact two-column"
+PATH_LIST_STYLE = "compact single-column no-bullet"
+PAGE_HEADING_LEVELS = (1, 2)  # TOC levels whose headings open a page of their own
+# A property path whose last step is a class (bf:provisionActivity/bf:ProvisionActivity); the
+# lines that follow it in a page-top list are its properties and get indented one step.
+CLASS_PATH_RE = re.compile(r"(?:^|/)[A-Za-z]+:[A-Z][A-Za-z0-9]*$")
+BRACKET_RE = re.compile(r"\[[^\]]*\]")  # [type=Language] qualifiers, ignored when reading a path
 ONTOLOGY_URL = {
     "bf": "https://id.loc.gov/ontologies/bibframe.html",
     "bflc": "https://id.loc.gov/ontologies/bflc.html",
@@ -845,6 +858,8 @@ class Renderer:
 
     def clean(self, blocks: list) -> list:
         def block_fn(b):
+            if b["t"] in ("BulletList", "OrderedList"):
+                return tight_list(b)
             if b["t"] in ("Para", "Plain"):
                 m = CODE_RE.match(block_text(b).strip())
                 if m:
@@ -875,7 +890,7 @@ class Renderer:
                 return {"t": "Image", "c": [["", [], []], alt, [url, title]]}
             return None
 
-        return walk(group_term_lists(blocks), block_fn, inline_fn)
+        return walk(group_term_lists(group_path_lists(blocks)), block_fn, inline_fn)
 
     # -- rendering a single page --------------------------------------------------
 
@@ -980,6 +995,122 @@ def is_term_line(b: dict) -> bool:
     return marker is not None and bool(TOKEN_RE.match(plain_text(rest)))
 
 
+def tight_list(b: dict) -> dict:
+    """Word lists reach us loose (a Para per item, which renders as <li><p>); make them tight.
+
+    Only the first block of an item decides tightness for pandoc, so that one
+    becomes Plain and anything else in the item (nested lists, extra
+    paragraphs) is left alone.
+    """
+    items = b["c"] if b["t"] == "BulletList" else b["c"][1]
+    items = [
+        [{"t": "Plain", "c": item[0]["c"]}] + item[1:] if item and item[0]["t"] == "Para" else item
+        for item in items
+    ]
+    if b["t"] == "BulletList":
+        return {"t": "BulletList", "c": items}
+    return {"t": "OrderedList", "c": [b["c"][0], items]}
+
+
+def list_style_block(style: str) -> dict:
+    return {"t": "RawBlock", "c": ["html", LIST_STYLE_MARK.format(style)]}
+
+
+def indent_width(inlines) -> int:
+    """Width of a leading @@INDENT@@ marker, or 0."""
+    if inlines and inlines[0]["t"] == "Str":
+        m = INDENT_RE.match(inlines[0]["c"])
+        if m:
+            return int(m.group(1))
+    return 0
+
+
+def is_italic_line(b: dict) -> bool:
+    """A paragraph whose entire text is italic (an indent marker may lead it)."""
+    if b["t"] not in ("Para", "Plain"):
+        return False
+    _, rest = indent_parts(b["c"])
+    return bool(plain_text(rest)) and all(il["t"] in ("Emph", "Space", "SoftBreak", "LineBreak") for il in rest)
+
+
+def trim_spaces(inlines: list) -> list:
+    while inlines and inlines[0]["t"] in ("Space", "SoftBreak"):
+        inlines = inlines[1:]
+    while inlines and inlines[-1]["t"] in ("Space", "SoftBreak"):
+        inlines = inlines[:-1]
+    return inlines
+
+
+def split_lines(inlines) -> list[list]:
+    """Cut inlines into lines at LineBreaks; a break inside an Emph splits it so every line stays italic."""
+    lines: list[list] = [[]]
+    for il in inlines:
+        if il["t"] == "LineBreak":
+            lines.append([])
+        elif il["t"] == "Emph":
+            for n, piece in enumerate(split_lines(il["c"])):
+                if n:
+                    lines.append([])
+                lines[-1].append({"t": "Emph", "c": piece})
+        else:
+            lines[-1].append(il)
+    return [trim_spaces(line) for line in lines if plain_text(line)]
+
+
+def ends_in_class(inlines) -> bool:
+    return bool(CLASS_PATH_RE.search(BRACKET_RE.sub("", plain_text(inlines)).strip()))
+
+
+def path_indents(lines: list[tuple[int, list]]) -> list[int]:
+    """Indent for each (docx indent, inlines) line of a page-top path list.
+
+    A line ending in a class opens a group: the lines after it, up to the next
+    class line, are indented one step below it. Indentation typed into the
+    docx is kept where it is deeper than that.
+    """
+    indents = []
+    parent = None
+    for own, inlines in lines:
+        if ends_in_class(inlines):
+            parent = own
+            indents.append(own)
+        else:
+            indents.append(max(own, parent + TAB_SPACES if parent is not None else 0))
+    return indents
+
+
+def group_path_lists(blocks: list) -> list:
+    """Italic lines directly under a page heading -> LIST_STYLE marker + tight bullet list.
+
+    These are the property paths that open the common-properties pages
+    (bf:language/bf:Language, ...). One item per line, indented per
+    path_indents and carried as an indent marker.
+    """
+    out: list = []
+    i = 0
+    while i < len(blocks):
+        b = blocks[i]
+        out.append(b)
+        i += 1
+        if b["t"] != "Header" or b["c"][0] not in PAGE_HEADING_LEVELS:
+            continue
+        run = []
+        while i < len(blocks) and is_italic_line(blocks[i]):
+            run.append(blocks[i])
+            i += 1
+        if not run:
+            continue
+        base = min(indent_width(p["c"]) for p in run)
+        lines = [(indent_width(p["c"]) - base, line) for p in run for line in split_lines(indent_parts(p["c"])[1])]
+        items = []
+        for indent, (_, line) in zip(path_indents(lines), lines):
+            prefix = [{"t": "Str", "c": INDENT_MARK.format(indent)}] if indent else []
+            items.append([{"t": "Plain", "c": prefix + link_term(line)}])
+        out.append(list_style_block(PATH_LIST_STYLE))
+        out.append(bullet_list(items))
+    return out
+
+
 def group_term_lists(blocks: list) -> list:
     """Runs of 2+ consecutive indented single-token lines -> LIST_STYLE marker + tight bullet list."""
     out: list = []
@@ -988,7 +1119,7 @@ def group_term_lists(blocks: list) -> list:
     def flush():
         if len(run) >= 2:
             items = [[{"t": "Plain", "c": link_term(indent_parts(b["c"])[1])}] for b in run]
-            out.append({"t": "RawBlock", "c": ["html", LIST_STYLE_MARK]})
+            out.append(list_style_block(TERM_LIST_STYLE))
             out.append(bullet_list(items))
         else:
             out.extend(run)

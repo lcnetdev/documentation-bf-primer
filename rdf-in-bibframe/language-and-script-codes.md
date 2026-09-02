@@ -5,17 +5,11 @@ Language and script encoding for non-Latin data fields will follow [BCP47](https
 BIBFRAME data consumers and producers are encouraged to implement BCP47 in the following manner:
 
 1)  Respect all the components of any incoming BCP47 codes by retaining any incoming BCP47 codes.
-
 2)  Normalize BCP47 codes as follows:
-
     1.  Follow BCP47’s [IANA Registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for language codes. This means two-character, lowercase language codes are preferred; three-character, lowercase language codes are used when a two-character code is unavailable. Registry language codes include all of ISO 639-1, ISO 639-2, and ISO 639-3.
-
     2.  If “Suppress-script” is included in registry for a given language, it is respected.
-
     3.  If “Suppress-script” is NOT included in registry for a given language, a script code is required in the resulting BCP47 code.
-
     4.  Entire BCP47 code (i.e. all components) to lowercase.
-
 3)  Regional (i.e. geographic) codes will be respected, but will be avoided when they otherwise do not add information.
 
 Examples:

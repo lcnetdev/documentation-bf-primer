@@ -1,11 +1,10 @@
 # Contributions and Contributors
 
-*bf:contribution/bf:Contribution*
+<!-- LIST_STYLE: compact single-column no-bullet -->
 
-<!-- LIST_STYLE: compact two-column -->
-
-- *bf:agent/bf:Agent*
-- *bf:role/bf:Role*
+- *bf:contribution/bf:Contribution*
+- &nbsp;&nbsp;&nbsp;&nbsp;*bf:agent/bf:Agent*
+- &nbsp;&nbsp;&nbsp;&nbsp;*bf:role/bf:Role*
 
 A bf:Contribution is an abstraction resource that mainly allows for the identification of a single Agent and that Agent’s roles with respect to the related resource, such as a bf:Work, bf:Hub, bf:Item, or bf:Instance. Leveraging an abstraction layer makes it possible not only to identify multiple roles the Agent played in the lifecycle of a resource, but also any other information that is specific to the relationship between an Agent and the BIBFRAME resource in question. Consider the following example that captures not only who the actor was but also his role:
 

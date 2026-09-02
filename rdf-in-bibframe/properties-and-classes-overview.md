@@ -120,11 +120,8 @@ In BIBFRAME, there is a single identifier property, bf:identifiedBy. Separate cl
 Advantages to representing type as a class rather than a property are:
 
 - Reusability: For every identifier expressed in BIBFRAME, a resource is created. If it is created as a linked data resource, then it may be accessed and reused outside of BIBFRAME. Allowing the class to reflect the identifier source means that the source will be known when it is used as such. If the source is conveyed only by the BIBFRAME property, then that source will only be known when accessed in the BIBFRAME context.
-
 - Query efficiency: Expressing types as classes often makes the data more easily queried. “Find things of type *X*” is simpler when *X* is a class rather than a property.
-
 - Conciseness: Defining a single general property and using subclasses of a general class (when multiple potential properties have the same meaning) creates a more concise ontology. For instance, bf:AbbreviatedTitle and bf:KeyTitle are subclasses of bf:VariantTitle.
-
 - Graceful degradation: Since non-BIBFRAME external namespaces can be used, introducing that namespace as a new class ensures that systems can recognize the data as a type of a BIBFRAME property.
 
 ## Formal constraints

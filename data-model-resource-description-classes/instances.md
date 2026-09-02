@@ -33,11 +33,8 @@ Sometimes a resource to be cataloged is a single object, like a book. And someti
 In each case, the resource can be cataloged in BIBFRAME as a single work. The number of instances will vary.
 
 - One print monograph = one Work and one Instance
-
 - One book with a CD = one Work, one Instance for the book, one Instance for the CD
-
 - One print map and its digitized version = one Work, one Instance for the print map, one Instance for the digitized map
-
 - One DVD and an accompanying CD = one Work, one Instance for the DVD, one Instance for the CD
 
 To avoid unnecessary redundancy, the majority of the data (such as provision activity, identifiers, notes, statement of responsibility) is placed on one Instance and the technical information unique to each accompanying object (carrier, media, electronic locator, extent, dimensions) is placed on a Secondary Instance. Often, however, Secondary Instances are slimmer than the main Instance simply because most MARC records from which they are derived contain far fewer details about them. They are designed to work in conjunction with the Work and Instance(s) to describe all of the components of the resource being cataloged.

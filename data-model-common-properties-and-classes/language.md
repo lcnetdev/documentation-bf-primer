@@ -1,10 +1,10 @@
 # Language
 
-*bf:language/bf:Language*
+<!-- LIST_STYLE: compact single-column no-bullet -->
 
-*bf:accompaniedBy/bf:Work/bf:language*
-
-*bf:note/bf:Note\[type=Language\]/bf:language*
+- *bf:language/bf:Language*
+- &nbsp;&nbsp;&nbsp;&nbsp;*bf:accompaniedBy/bf:Work/bf:language*
+- &nbsp;&nbsp;&nbsp;&nbsp;*bf:note/bf:Note\[type=Language\]/bf:language*
 
 Ideally, one has a resource and it is in one or more languages. And that is precisely the pattern/model that BIBFRAME naturally supports.
 

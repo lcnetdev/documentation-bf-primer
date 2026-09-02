@@ -1,12 +1,11 @@
 # Subjects
 
-*bf:subject/bf:Topic*
+<!-- LIST_STYLE: compact single-column no-bullet -->
 
-*bf:subject/bf:Agent*
-
-*bf:subject/bf:Place*
-
-*bf:subject/bf:Hub*
+- *bf:subject/bf:Topic*
+- *bf:subject/bf:Agent*
+- *bf:subject/bf:Place*
+- *bf:subject/bf:Hub*
 
 BIBFRAME’s single bf:subject object property may identify four different types of subjects: (generic/conceptual) Topics, Agents (People, Organizations, e.g.), Places, and Hubs (other bibliographic resources). But there are no restrictions on its use and so could be used with bf:Work or bf:Event. Any entity or concept from any subject scheme can be used in BIBFRAME. The source of the term or entity is usually identifiable via URI but can also be identified via the bf:source property.
 

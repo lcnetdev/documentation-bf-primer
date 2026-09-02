@@ -1,6 +1,8 @@
 # Notes
 
-*bf:note/b:Note\[rdf:type=”http://id.loc.gov/vocabulary/mnotetype...”\]*
+<!-- LIST_STYLE: compact single-column no-bullet -->
+
+- *bf:note/b:Note\[rdf:type=”http://id.loc.gov/vocabulary/mnotetype...”\]*
 
 Any BIBFRAME resource may express a note via the object property bf:note (expected value bf:Note). The content of the note is typically expressed in an rdfs:label. It is possible to more specifically identify notes by employing the use of rdf:type and a value from the [Note Type](http://id.loc.gov/vocabulary/mnotetype) list at ID.LOC.GOV. When notes are not specifically identified, they can be interpreted to be general notes of the resource with which the note is associated.
 

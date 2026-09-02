@@ -1,17 +1,16 @@
 # Titles
 
-*bf:title/bf:Title*
+<!-- LIST_STYLE: compact single-column no-bullet -->
+
+- *bf:title/bf:Title*
 
 BIBFRAME defines a single title property, bf:title, with a corresponding bf:Title class.
 
 For variant titles, bf:VariantTitle is a subclass of bf:Title, and it has the following subclasses:
 
 - bf:AbbreviatedTitle
-
 - bf:CollectiveTitle
-
 - bf:KeyTitle
-
 - bf:ParallelTitle
 
 In addition to those types defined in the BIBFRAME vocabulary, the Variant Title Type dataset, published by the Library of Congress’s Linked Data Service (id.loc.gov), is a list of resources all of which are defined as bf:VariantTitle resources and readily usable with the BIBFRAME model and vocabulary: <https://id.loc.gov/vocabulary/vartitletype.html>. These variant types can be expressed by use of the rdf:type property of the bf:VariantTitle resource.
@@ -32,23 +31,14 @@ In addition to those types defined in the BIBFRAME vocabulary, the Variant Title
 In addition, the following properties may occur within a title resource:
 
 - bf:mainTitle
-
 - bf:subtitle
-
 - bf:qualifier
-
 - bf:date
-
 - bf:originDate
-
 - bf:partName
-
 - bf:partNumber
-
 - bf:version
-
 - bf:assigner
-
 - bflc:nonSortNum
 
 BIBFRAME implementers are encouraged to create the simplest Title resources possible and use the many available properties sparingly. Despite their creation and existence, there is little benefit to segmenting title information when implementing BIBFRAME. Not only does it make the data much more difficult to query and manipulate, but most effort will go to merely recombining the parts into a sensible string.

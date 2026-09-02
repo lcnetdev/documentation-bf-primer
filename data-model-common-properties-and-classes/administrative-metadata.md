@@ -1,6 +1,8 @@
 # Administrative Metadata
 
-*bf:adminMetadata/bf:AdminMetadata*
+<!-- LIST_STYLE: compact single-column no-bullet -->
+
+- *bf:adminMetadata/bf:AdminMetadata*
 
 For any BIBFRAME description, there are metadata elements which pertain to the description, rather than to the resource which is the subject of the description. These elements are stored in Admin Metadata resources using the BIBFRAME property bf:adminMetadata. This structure ensures that the administrative metadata is clearly distinguished from statements describing the resource.
 

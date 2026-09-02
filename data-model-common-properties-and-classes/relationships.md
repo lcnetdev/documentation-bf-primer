@@ -1,8 +1,10 @@
 # Relationships
 
-*bf:relation/bf:Relation\
-bf:relationship\
-bf:associatedResource*
+<!-- LIST_STYLE: compact single-column no-bullet -->
+
+- *bf:relation/bf:Relation*
+- &nbsp;&nbsp;&nbsp;&nbsp;[*bf:relationship*](https://id.loc.gov/ontologies/bibframe.html#p_relationship)
+- &nbsp;&nbsp;&nbsp;&nbsp;[*bf:associatedResource*](https://id.loc.gov/ontologies/bibframe.html#p_associatedResource)
 
 Relationships as discussed in this section generally apply to relationships between principal BIBFRAME resources: Work, Instance, Hub, and Item. BIBFRAME supports two methods for expressing relationships: the indirect method and the direct method.
 

@@ -1,14 +1,12 @@
 # Provision Activity
 
-*bf:provisionActivity/bf:ProvisionActivity*
+<!-- LIST_STYLE: compact single-column no-bullet -->
 
-*bf:publicationStatement*
-
-*bf:productionStatement*
-
-*bf:distributionStatement*
-
-*bf:manufactureStatement*
+- *bf:provisionActivity/bf:ProvisionActivity*
+- &nbsp;&nbsp;&nbsp;&nbsp;[*bf:publicationStatement*](https://id.loc.gov/ontologies/bibframe.html#p_publicationStatement)
+- &nbsp;&nbsp;&nbsp;&nbsp;[*bf:productionStatement*](https://id.loc.gov/ontologies/bibframe.html#p_productionStatement)
+- &nbsp;&nbsp;&nbsp;&nbsp;[*bf:distributionStatement*](https://id.loc.gov/ontologies/bibframe.html#p_distributionStatement)
+- &nbsp;&nbsp;&nbsp;&nbsp;[*bf:manufactureStatement*](https://id.loc.gov/ontologies/bibframe.html#p_manufactureStatement)
 
 Provision Activity in BIBFRAME is a class of resource that captures event information around the publication, production, distribution, or manufacture of an Instance. Indeed, bf:ProvisionActivity has four subclasses: bf:Publication, bf:Production, bf:Distribution, and bf:Manufacture.
 
