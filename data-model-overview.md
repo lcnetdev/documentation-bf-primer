@@ -4,7 +4,7 @@ When a resource is cataloged, the resulting BIBFRAME description includes inform
 
 The very core of the BIBFRAME model is composed of two classes, or resource types: a Work and an Instance. It is generally impossible to represent a “complete” or ”full” bibliographic resource without one of each of these two types. The Instance represents an example or manifestation of a Work. Although an Instance can be electronic, an Instance consumes space or has some mass, even if the measurement is in bytes. The physical paperback someone holds or the mp3 audio someone listens to are examples of Instances. Those Instances are “instances of” BIBFRAME Work resources, which represent the more conceptual aspects of a bibliographic resource and commonalities of the Work’s expression.
 
-A BF Work often includes information about whom contributed to the Work (and how), the genre or form or nature of the Work (Fiction or moving image), what the Work may be about (the subject(s) of the Work), relationships to other Works (and their nature), etc. Instances of a Work capture details that are specific to the Instance such as page numbers, specific identifiers (ISBNs), carrier information, etc.
+A BIBFRAME Work often includes information about whom contributed to the Work (and how), the genre or form or nature of the Work (Fiction or moving image), what the Work may be about (the subject(s) of the Work), relationships to other Works (and their nature), etc. Instances of a Work capture details that are specific to the Instance such as page numbers, specific identifiers (ISBNs), carrier information, etc.
 
 Heretofore, bibliographic resources were often compound records that brought all of these aspects together. Either each instance or manifestation was presented in a single record, which would result in the work-level information being duplicated in multiple records, or information about multiple instances or manifestations was presented in a single record, which resulted in a lack of clarity as to what, exactly, the resource described. By handling these different aspects of a bibliographic resource distinctly, and relating them to each other, it is possible to reduce the duplication while enhancing clarity.
 
@@ -17,6 +17,5 @@ Combining the flexibility provided by a largely unconstrained vocabulary with th
 ---
 
 [Back to Table of Contents](index.md)
-
 
 [Previous Page: Special Terminology](introduction/special-terminology.md) | [Next Page: BIBFRAME and Content Models (such as RDA)](bibframe-and-content-models-such-as-rda.md)

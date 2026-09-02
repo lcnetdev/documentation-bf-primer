@@ -21,7 +21,7 @@ BIBFRAME (BF) provides a model for representing bibliographic data in a linked d
 - [Data Model: Resource Description Classes](data-model-resource-description-classes/index.md)
   - [Works](data-model-resource-description-classes/works.md)
     - [Key properties: Work](data-model-resource-description-classes/works.md#key-properties-work)
-    - [Implementation consideration: BF Work and RDA Work](data-model-resource-description-classes/works.md#implementation-consideration-bf-work-and-rda-work)
+    - [Implementation consideration: BIBFRAME Work and RDA Work](data-model-resource-description-classes/works.md#implementation-consideration-bibframe-work-and-rda-work)
   - [Instances](data-model-resource-description-classes/instances.md)
     - [Key properties: Instance](data-model-resource-description-classes/instances.md#key-properties-instance)
     - [Implementation Consideration: Secondary Instances](data-model-resource-description-classes/instances.md#implementation-consideration-secondary-instances)
@@ -61,7 +61,8 @@ BIBFRAME (BF) provides a model for representing bibliographic data in a linked d
     - [Reciprocal properties](rdf-in-bibframe/properties-and-classes-overview.md#reciprocal-properties)
     - [Using rdf: and rdfs: properties](rdf-in-bibframe/properties-and-classes-overview.md#using-rdf-and-rdfs-properties)
   - [Language and script codes](rdf-in-bibframe/language-and-script-codes.md)
-- [References](references.md)
+- [References and Links](references-and-links.md)
+- [Appendix A: More about Hubs](appendix-a-more-about-hubs.md)
 
 ---
 
@@ -77,5 +78,6 @@ relationship-to-marc.md
 data-model-resource-description-classes
 data-model-common-properties-and-classes
 rdf-in-bibframe
-references.md
+references-and-links.md
+appendix-a-more-about-hubs.md
 -->

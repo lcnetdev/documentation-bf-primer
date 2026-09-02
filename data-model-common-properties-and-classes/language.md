@@ -6,7 +6,7 @@
 
 *bf:note/bf:Note\[type=Language\]/bf:language*
 
-Ideally, one has a resource and it is in one or more languages. And that is precisely the pattern/model that Bibframe naturally supports.
+Ideally, one has a resource and it is in one or more languages. And that is precisely the pattern/model that BIBFRAME naturally supports.
 
 ```xml
 <rdf:RDF>

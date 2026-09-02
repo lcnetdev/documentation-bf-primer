@@ -2,7 +2,7 @@
 
 *bf:adminMetadata/bf:AdminMetadata*
 
-For any BIBFRAME description, there are metadata elements which pertain to the description, rather than to the resource which is the subject of the description. These elements are stored in Admin Metadata resources using the BF property bf:adminMetadata. This structure ensures that the administrative metadata is clearly distinguished from statements describing the resource.
+For any BIBFRAME description, there are metadata elements which pertain to the description, rather than to the resource which is the subject of the description. These elements are stored in Admin Metadata resources using the BIBFRAME property bf:adminMetadata. This structure ensures that the administrative metadata is clearly distinguished from statements describing the resource.
 
 A single BIBFRAME description will contain multiple Admin Metadata resources. Most are very brief and only contain the status, the date that the status changed, and the agent which changed the resource. These capture events in the history of the description. But there will typically be one bf:AdminMetadata resource that captures more specific cataloging information like encoding level, description conventions, description authentication, and language of cataloging.
 

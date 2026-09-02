@@ -8,13 +8,13 @@
 
 *bf:subject/bf:Hub*
 
-Bibframe’s single bf:subject object property may identify four different types of subjects: (generic/conceptual) Topics, Agents (People, Organizations, e.g.), Places, and Hubs (other bibliographic resources). But there are no restrictions on its use and so could be used with bf:Work or bf:Event. Any entity or concept from any subject scheme can be used in Bibframe. The source of the term or entity is usually identifiable via URI but can also be identified via the bf:source property.
+BIBFRAME’s single bf:subject object property may identify four different types of subjects: (generic/conceptual) Topics, Agents (People, Organizations, e.g.), Places, and Hubs (other bibliographic resources). But there are no restrictions on its use and so could be used with bf:Work or bf:Event. Any entity or concept from any subject scheme can be used in BIBFRAME. The source of the term or entity is usually identifiable via URI but can also be identified via the bf:source property.
 
 ## Implementation consideration: LCSH
 
 The Library of Congress remains committed to the Library of Congress Subject Heading scheme which supports a precoordinated system of heading creation. Precoordination means that catalogers determine which terms are chosen and establish their order, which carries meaning. (Postcoordination places the burden of combination on users to generate Boolean searches and even then the concept of order is lost or challenging at best.)
 
-To support LCSH precoordination, Bibframe uses properties and modelling from the MADS/RDF namespace. Specifically, madsrdf:componentList is used to record individual concepts that compose a precoordinated string and ensure their order is maintained. MADS/RDF resource types, especially as used in the madsrdf:componentList, are used liberally.
+To support LCSH precoordination, BIBFRAME uses properties and modelling from the MADS/RDF namespace. Specifically, madsrdf:componentList is used to record individual concepts that compose a precoordinated string and ensure their order is maintained. MADS/RDF resource types, especially as used in the madsrdf:componentList, are used liberally.
 
 The Library of Congress has also implemented a modelling decision that concludes any subject that combines one or more entities or concepts be identified as a bf:Topic, which is defined in similar terms as skos:Concept.
 

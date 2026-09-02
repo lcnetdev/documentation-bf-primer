@@ -10,7 +10,7 @@ Most namespace declarations are omitted from the examples for brevity and clarit
     />
 ```
 
-Nearly all of the BIBFRAME Classes and Properties are expressed in the main Bibframe namespace: http://id.loc.gov/ontologies/bibframe/
+Nearly all of the BIBFRAME Classes and Properties are expressed in the main BIBFRAME namespace: http://id.loc.gov/ontologies/bibframe/
 
 But a number of auxiliary Class lists are used. These are published at ID.LOC.GOV, often with a declared association with a “parent” BIBFRAME Class. For example, the Relators entity for “author” (<http://id.loc.gov/vocabulary/relators/aut>) is declared a type of bf:Role. This makes it clear that any resource in the Relators dataset is usable as a Role in BIBFRAME.
 
@@ -25,20 +25,19 @@ But a number of auxiliary Class lists are used. These are published at ID.LOC.GO
 
 ## BFLC
 
-The Library of Congress has an extension ontology (BFLC) that is used for testing and review of potential additions to the main BIBFRAME ontology. For example, the agent subclass bf:PrimaryContribution was originally a BFLC class and was moved to the BIBFRAME ontology based on user feedback. The BFLC ontology is also used for LC-specific local data elements.
+The Library of Congress has an extension ontology (BFLC) that is used for testing and review of potential additions to the main BIBFRAME ontology. For example, the agent subclass bf:PrimaryContribution was originally a BFLC class and was moved to the BIBFRAME ontology based on user feedback. The BFLC ontology is also used for LC-specific local data elements. The below example features bflc:aap, which is merely a convenient label generated programmatically. This property has been included in a number of examples below merely to provide a succinct description of what the example Work is.
 
 ```xml
 <rdf:RDF>
   <bf:Work rdf:about="http://id.loc.gov/resources/hubs/ca6d97b4-923a-b178-6723-d55a4eb236a7">
     <bflc:aap>Dvořák, Antonín, 1841-1904. Symphonies, no. 9, op. 95, E minor</bflc:aap>
-    <bflc:aap-normalized>dvořákantonín18411904symphoniesno9op95eminor</bflc:aap-normalized>
   </bf:Work>
 </rdf:RDF>
 ```
 
 ## Examples
 
-Typically, BIBFRAME resources tend to be small graphs of information. Examples will therefore often be severely truncated, again for brevity and clarity, to focus on the specific example under discussion.
+Typically, BIBFRAME resources tend to be small graphs of information containing ample information to describe a Work or Instance. Examples in this document are focused on a specific detail about the model and/or vocabulary and will therefore often be severely truncated for brevity and clarity.
 
 Full BIBFRAME examples are available from the Library of Congress’s Linked Data Service (<http://id.loc.gov/>).
 

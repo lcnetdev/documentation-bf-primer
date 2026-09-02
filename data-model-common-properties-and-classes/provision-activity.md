@@ -10,7 +10,7 @@
 
 *bf:manufactureStatement*
 
-Provision Activity in Bibframe is a class of resource that captures event information around the publication, production, distribution, or manufacture of an Instance. Indeed, bf:ProvisionActivity has four subclasses: bf:Publication, bf:Production, bf:Distribution, and bf:Manufacture.
+Provision Activity in BIBFRAME is a class of resource that captures event information around the publication, production, distribution, or manufacture of an Instance. Indeed, bf:ProvisionActivity has four subclasses: bf:Publication, bf:Production, bf:Distribution, and bf:Manufacture.
 
 Example 1:
 
@@ -36,7 +36,7 @@ Provision Activity resources are repeatable within an Instance. There might be o
 
 ## Implementation consideration: Interoperability with MARC, RDA requirements
 
-The following example is what is actually observed in the Library of Congress Bibframe Instance from Example 1.
+The following example is what is actually observed in the Library of Congress BIBFRAME Instance from Example 1.
 
 ```xml
 <rdf:RDF>
@@ -57,11 +57,11 @@ The following example is what is actually observed in the Library of Congress Bi
 </rdf:RDF>
 ```
 
-Take note of the three “bflc” properties: bflc:simplePlace, bflc:simpleAgent, bflc:simpleDate. These three properties, which are not in the formal Bibframe namespace, exist for the sole purpose of MARC interoperability. MARC parses these discrete bits of information into subfields of the 264 field. In MARC, they are additionally segmented using ISBD punctuation, effectively resulting in double encoding – once in order to place the information into the proper subfield and again with ISBD punctation to distinguish the pieces for the user. Further, this lexical information is ‘transcribed’ from the piece in hand, which invariably results in wide variation (see e.g. <https://id.loc.gov/entities/providers/360bb1111f974b10613761b87bc70320.html> which shows the various, and still incomplete, ways one publisher’s name has been recorded in MARC).
+Take note of the three “bflc” properties: bflc:simplePlace, bflc:simpleAgent, bflc:simpleDate. These three properties, which are not in the formal BIBFRAME namespace, exist for the sole purpose of MARC interoperability. MARC parses these discrete bits of information into subfields of the 264 field. In MARC, they are additionally segmented using ISBD punctuation, effectively resulting in double encoding – once in order to place the information into the proper subfield and again with ISBD punctation to distinguish the pieces for the user. Further, this lexical information is ‘transcribed’ from the piece in hand, which invariably results in wide variation (see e.g. <https://id.loc.gov/entities/providers/360bb1111f974b10613761b87bc70320.html> which shows the various, and still incomplete, ways one publisher’s name has been recorded in MARC).
 
-In Bibframe, the bf:publicationStatement represents the ISBD-punctuated string, meant for the end user. There is no discernable need to segment this information into individual elements and thus support for this practice is reserved for a non-Bibframe namespace and for the express purpose of MARC interoperability. In a pure Bibframe environment, bf:publicationStatement (and the other similar properties) should be used exclusively.
+In BIBFRAME, the bf:publicationStatement represents the ISBD-punctuated string, meant for the end user. There is no discernable need to segment this information into individual elements and thus support for this practice is reserved for a non-BIBFRAME namespace and for the express purpose of MARC interoperability. In a pure BIBFRAME environment, bf:publicationStatement (and the other similar properties) should be used exclusively.
 
-Finally, RDA requires only that catalogers record a publication, production, distribution, and manufacture “statement.” Although many RDA catalogers are working in MARC, the Bibframe statement properties are likewise sufficient to adhere to this RDA instruction.
+Finally, RDA requires only that catalogers record a publication, production, distribution, and manufacture “statement.” Although many RDA catalogers are working in MARC, the BIBFRAME statement properties are likewise sufficient to adhere to this RDA instruction.
 
 Example (publication): <https://id.loc.gov/resources/instances/23586254.html>
 

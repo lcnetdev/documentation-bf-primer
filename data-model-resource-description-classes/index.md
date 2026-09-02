@@ -4,7 +4,7 @@
 
 - [Works](works.md)
   - [Key properties: Work](works.md#key-properties-work)
-  - [Implementation consideration: BF Work and RDA Work](works.md#implementation-consideration-bf-work-and-rda-work)
+  - [Implementation consideration: BIBFRAME Work and RDA Work](works.md#implementation-consideration-bibframe-work-and-rda-work)
 - [Instances](instances.md)
   - [Key properties: Instance](instances.md#key-properties-instance)
   - [Implementation Consideration: Secondary Instances](instances.md#implementation-consideration-secondary-instances)

@@ -28,9 +28,9 @@ bf:Work properties seek to describe the who, what, and when of a resource. This 
 
 &nbsp;&nbsp;&nbsp;&nbsp;[bf:title](https://id.loc.gov/ontologies/bibframe.html#p_title)
 
-## Implementation consideration: BF Work and RDA Work
+## Implementation consideration: BIBFRAME Work and RDA Work
 
-A Bibframe Work is closer to an RDA Expression than it is to an RDA Work (this is not, however, to say they are the same!). The core of the Bibframe model – BF Works and BF Instances – is about describing real-life resources, not abstractions. The objective is to describe a resource that a user may want to review or acquire. Considerable detail, therefore, may go into a BF Work description such that the included information might be seen as traditional RDA Work elements – titles, authors – but also RDA Expression elements – such as language, content type, other contributors.
+A BIBFRAME Work is closer to an RDA Expression than it is to an RDA Work (this is not, however, to say they are the same!). The core of the BIBFRAME model – BIBFRAME Works and BIBFRAME Instances – is about describing real-life resources, not abstractions. The objective is to describe a resource that a user may want to review or acquire. Considerable detail, therefore, may go into a BIBFRAME Work description such that the included information might be seen as traditional RDA Work elements – titles, authors – but also RDA Expression elements – such as language, content type, other contributors.
 
 ---
 

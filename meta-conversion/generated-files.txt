@@ -1,3 +1,4 @@
+appendix-a-more-about-hubs.md
 bibframe-and-content-models-such-as-rda.md
 data-model-common-properties-and-classes/administrative-metadata.md
 data-model-common-properties-and-classes/contributions-and-contributors.md
@@ -26,5 +27,5 @@ introduction/status-of-this-document.md
 rdf-in-bibframe/index.md
 rdf-in-bibframe/language-and-script-codes.md
 rdf-in-bibframe/properties-and-classes-overview.md
-references.md
+references-and-links.md
 relationship-to-marc.md

@@ -51,7 +51,7 @@ In addition, the following properties may occur within a title resource:
 
 - bflc:nonSortNum
 
-Bibframe implementers are encouraged to create the simplest Title resources possible and use the many available properties sparingly. Despite their creation and existence, there is little benefit to segmenting title information when implementing Bibframe. Not only does it make the data much more difficult to query and manipulate, but most effort will go to merely recombining the parts into a sensible string.
+BIBFRAME implementers are encouraged to create the simplest Title resources possible and use the many available properties sparingly. Despite their creation and existence, there is little benefit to segmenting title information when implementing BIBFRAME. Not only does it make the data much more difficult to query and manipulate, but most effort will go to merely recombining the parts into a sensible string.
 
 Compare:
 
@@ -122,7 +122,7 @@ Note order is difficult to impossible to maintain when the parts of titles are p
 
 ## Implementation consideration: Domain
 
-Whether a bf:Title should be associated with the bf:Work or bf:Instance (or bf:Item or bf:Hub) is an implementation decision. What should be borne in mind is that a Title of the Work generally applies to all Instances and any Instance titles are specific to the Instance. A “spine” title (a shortened title, e.g., printed on the spine of the physical book) is obviously specific to an Instance. If the Title from the Title page is common to both the hardback, paperback, and electronic versions, it may be more appropriate to associate it with the Work. NB: the Bibframe Model and Vocabulary is silent about where it is best to enter “transcribed”’ information.
+Whether a bf:Title should be associated with the bf:Work or bf:Instance (or bf:Item or bf:Hub) is an implementation decision. What should be borne in mind is that a Title of the Work generally applies to all Instances and any Instance titles are specific to the Instance. A “spine” title (a shortened title, e.g., printed on the spine of the physical book) is obviously specific to an Instance. If the Title from the Title page is common to both the hardback, paperback, and electronic versions, it may be more appropriate to associate it with the Work. NB: the BIBFRAME Model and Vocabulary is silent about where it is best to enter “transcribed”’ information.
 
 Example (main title with no subtitle): <https://id.loc.gov/resources/instances/22753990.html>
 

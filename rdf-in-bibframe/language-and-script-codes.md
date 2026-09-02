@@ -2,7 +2,7 @@
 
 Language and script encoding for non-Latin data fields will follow [BCP47](https://www.rfc-editor.org/info/rfc5646). BCP47 provides a pattern for defining language tags for use in a number of applications. It is the only means by which to record language in RDF. Using BCP47, it is possible to capture not just the language of string literal but also any geographic considerations, the script used, and even whether something has been transformed via romanization.
 
-As a data consumer and producer, the Library of Congress will treat BCP47 codes in the following manner:
+BIBFRAME data consumers and producers are encouraged to implement BCP47 in the following manner:
 
 1)  Respect all the components of any incoming BCP47 codes by retaining any incoming BCP47 codes.
 
@@ -42,4 +42,4 @@ These guidelines err on the side of caution, favoring clarity at the risk of wid
 
 [Back to Table of Contents](../index.md)
 
-[Previous Page: Properties and classes overview](properties-and-classes-overview.md) | [Next Page: References](../references.md)
+[Previous Page: Properties and classes overview](properties-and-classes-overview.md) | [Next Page: References and Links](../references-and-links.md)

@@ -30,7 +30,7 @@ bf:PrimaryContribution is defined as a subclass of bf:Contribution. Identifying 
 
 Agents also appear in subject resources, but a role is not included.
 
-The Relators dataset, published by the Library of Congress’s Linked Data Service (id.loc.gov), is a list of resources all of which are defined as bf:Role resources and readily usable with the Bibframe model and vocabulary: <https://id.loc.gov/vocabulary/relators.html> In this way, these roles are maintained more as a list that can be added to easily and therefore not embedded in the BIBFRAME vocabulary, which is subject to stricter maintenance rules.
+The Relators dataset, published by the Library of Congress’s Linked Data Service (id.loc.gov), is a list of resources all of which are defined as bf:Role resources and readily usable with the BIBFRAME model and vocabulary: <https://id.loc.gov/vocabulary/relators.html> In this way, these roles are maintained more as a list that can be added to easily and therefore not embedded in the BIBFRAME vocabulary, which is subject to stricter maintenance rules.
 
 bf:Agent has subclasses:
 

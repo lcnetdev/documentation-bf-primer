@@ -10,7 +10,7 @@
 
 A BIBFRAME resource may have several identifiers. An Instance may have, for example, an ISBN, and a Work might have an ISSN or cluster ISSN, such as an ISSN-H. In bibliographic description, most Identifiers are associated with specific Instances or are part of administrative metadata.
 
-Since it is imperative to know the type of identifier, bf:Identifier is subclassed nearly 50 times in the Bibframe vocabulary. Additionally, implementers may choose any of the values from the [Standard Identifiers Scheme](http://id.loc.gov/vocabulary/identifiers) list at ID.LOC.GOV, all of which are of type bf:Identifier and can be used with Bibframe.
+Since it is imperative to know the type of identifier, bf:Identifier is subclassed nearly 50 times in the BIBFRAME vocabulary. Additionally, implementers may choose any of the values from the [Standard Identifiers Scheme](http://id.loc.gov/vocabulary/identifiers) list at ID.LOC.GOV, all of which are of type bf:Identifier and can be used with BIBFRAME.
 
 1)  Type Indicated by BIBFRAME Class
 
