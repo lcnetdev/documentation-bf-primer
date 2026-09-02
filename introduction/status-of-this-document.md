@@ -1,6 +1,6 @@
 # Status of this document
 
-This document is current as of 1 September 2026.
+This document is current as of 2 September 2026.
 
 It is anticipated that this Primer will be more a living document than a static one. While the BIBFRAME ontology and vocabulary change infrequently, the flexibility of the ontology and vocabulary means data can be expressed in a variety of ways, especially as needed to support bibliographic description, and even more especially when considering different formats of material.
 

@@ -258,4 +258,4 @@ Example (variant title type, added title page title): <https://id.loc.gov/resour
 
 [Back to Table of Contents](../index.md)
 
-[Previous Page: Subjects](subjects.md)
+[Previous Page: Subjects](subjects.md) | [Next Page: RDF in BIBFRAME](../rdf-in-bibframe/index.md)

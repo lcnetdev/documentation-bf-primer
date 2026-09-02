@@ -33,6 +33,7 @@ BIBFRAME (BF) provides a model for representing bibliographic data in a linked d
     - [BIBFRAME Hubs and MARC](data-model-resource-description-classes/hubs.md#bibframe-hubs-and-marc)
     - [Implementation consideration: Hubs and RDA](data-model-resource-description-classes/hubs.md#implementation-consideration-hubs-and-rda)
 - [Data Model: Common Properties and Classes](data-model-common-properties-and-classes/index.md)
+  - [Administrative Metadata](data-model-common-properties-and-classes/administrative-metadata.md)
   - [Contributions and Contributors](data-model-common-properties-and-classes/contributions-and-contributors.md)
   - [Identifiers](data-model-common-properties-and-classes/identifiers.md)
   - [Language](data-model-common-properties-and-classes/language.md)
@@ -49,7 +50,32 @@ BIBFRAME (BF) provides a model for representing bibliographic data in a linked d
   - [Titles](data-model-common-properties-and-classes/titles.md)
     - [Implementation consideration: MARC](data-model-common-properties-and-classes/titles.md#implementation-consideration-marc)
     - [Implementation consideration: Domain](data-model-common-properties-and-classes/titles.md#implementation-consideration-domain)
+- [RDF in BIBFRAME](rdf-in-bibframe/index.md)
+  - [Properties and classes overview](rdf-in-bibframe/properties-and-classes-overview.md)
+    - [Datatype and object properties](rdf-in-bibframe/properties-and-classes-overview.md#datatype-and-object-properties)
+    - [URIs and labels](rdf-in-bibframe/properties-and-classes-overview.md#uris-and-labels)
+    - [URIs and blank nodes](rdf-in-bibframe/properties-and-classes-overview.md#uris-and-blank-nodes)
+    - [Classes and types](rdf-in-bibframe/properties-and-classes-overview.md#classes-and-types)
+    - [Formal constraints](rdf-in-bibframe/properties-and-classes-overview.md#formal-constraints)
+    - [Naming properties and classes](rdf-in-bibframe/properties-and-classes-overview.md#naming-properties-and-classes)
+    - [Reciprocal properties](rdf-in-bibframe/properties-and-classes-overview.md#reciprocal-properties)
+    - [Using rdf: and rdfs: properties](rdf-in-bibframe/properties-and-classes-overview.md#using-rdf-and-rdfs-properties)
+  - [Language and script codes](rdf-in-bibframe/language-and-script-codes.md)
+- [References](references.md)
 
 ---
 
 [Next Page: Introduction](introduction/index.md)
+
+<!--
+NAV_ORDER
+index.md
+introduction
+data-model-overview.md
+bibframe-and-content-models-such-as-rda.md
+relationship-to-marc.md
+data-model-resource-description-classes
+data-model-common-properties-and-classes
+rdf-in-bibframe
+references.md
+-->

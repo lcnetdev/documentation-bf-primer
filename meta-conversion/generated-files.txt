@@ -1,4 +1,5 @@
 bibframe-and-content-models-such-as-rda.md
+data-model-common-properties-and-classes/administrative-metadata.md
 data-model-common-properties-and-classes/contributions-and-contributors.md
 data-model-common-properties-and-classes/identifiers.md
 data-model-common-properties-and-classes/index.md
@@ -15,10 +16,15 @@ data-model-resource-description-classes/instances.md
 data-model-resource-description-classes/items.md
 data-model-resource-description-classes/works.md
 images/image1.png
+images/image3.svg
 index.md
 introduction/index.md
 introduction/namespaces-and-examples.md
 introduction/organization-and-abbreviations.md
 introduction/special-terminology.md
 introduction/status-of-this-document.md
+rdf-in-bibframe/index.md
+rdf-in-bibframe/language-and-script-codes.md
+rdf-in-bibframe/properties-and-classes-overview.md
+references.md
 relationship-to-marc.md

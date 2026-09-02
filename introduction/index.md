@@ -20,3 +20,12 @@ BIBFRAME is expressed in RDF, which stands for Resource Description Framework an
 [Back to Table of Contents](../index.md)
 
 [Previous Page: BIBFRAME primer](../index.md) | [Next Page: Status of this document](status-of-this-document.md)
+
+<!--
+NAV_ORDER
+index.md
+status-of-this-document.md
+namespaces-and-examples.md
+organization-and-abbreviations.md
+special-terminology.md
+-->

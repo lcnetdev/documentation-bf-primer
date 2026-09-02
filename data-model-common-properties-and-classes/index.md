@@ -2,6 +2,7 @@
 
 ## Contents
 
+- [Administrative Metadata](administrative-metadata.md)
 - [Contributions and Contributors](contributions-and-contributors.md)
 - [Identifiers](identifiers.md)
 - [Language](language.md)
@@ -23,4 +24,18 @@
 
 [Back to Table of Contents](../index.md)
 
-[Previous Page: Hubs](../data-model-resource-description-classes/hubs.md) | [Next Page: Contributions and Contributors](contributions-and-contributors.md)
+[Previous Page: Hubs](../data-model-resource-description-classes/hubs.md) | [Next Page: Administrative Metadata](administrative-metadata.md)
+
+<!--
+NAV_ORDER
+index.md
+administrative-metadata.md
+contributions-and-contributors.md
+identifiers.md
+language.md
+notes.md
+provision-activity.md
+relationships.md
+subjects.md
+titles.md
+-->

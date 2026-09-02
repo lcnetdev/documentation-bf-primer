@@ -1,6 +1,6 @@
 # Notes
 
-*bf:note/b:Note\[rdf:type=”http://id.loc.gov/vocabulary/mnotetype/...”\]*
+*bf:note/b:Note\[rdf:type=”http://id.loc.gov/vocabulary/mnotetype...”\]*
 
 Any BIBFRAME resource may express a note via the object property bf:note (expected value bf:Note). The content of the note is typically expressed in an rdfs:label. It is possible to more specifically identify notes by employing the use of rdf:type and a value from the [Note Type](http://id.loc.gov/vocabulary/mnotetype) list at ID.LOC.GOV. When notes are not specifically identified, they can be interpreted to be general notes of the resource with which the note is associated.
 
@@ -37,23 +37,6 @@ And a note about an award the Work earned.
     </bf:note>
   <bf:Work>
 </rdf:RDF>
-```
-
-Example (note type inferred from context): <https://id.loc.gov/resources/works/5695135.html>
-
-A note might have a type that can be inferred from the context of the resource where it is located.
-
-```xml
-<bf:capture>
- <bf:Capture>
-  <bf:note>
-   <bf:Note>
-    <rdfs:label>capture</rdfs:label>
-   </bf:Note>
-  </bf:note>
-  <bf:date rdf:datatype="http://id.loc.gov/datatypes/edtf">1963-XX-XX/1978-XX-XX</bf:date>
- </bf:Capture>
-</bf:capture>
 ```
 
 ---

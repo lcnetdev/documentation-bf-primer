@@ -10,7 +10,9 @@ The BIBFRAME model and vocabulary, from its very initial inception in 2012, has 
 
 The lack of pure overlap in entity naming between BIBFRAME and RDA, as well as the differing definitions, concepts, and expected uses of the four “big” BIBFRAME entities – Work, Instance, Hub, and Item – is intentional. One of the main objectives with the BIBFRAME model and vocabulary is to keep it at a safe remove from any single content model, while providing enough hooks to allow for individual content models to use BIBFRAME to express their data.
 
-\<insert an image\>
+To this end, BIBFRAME embraces a graph approach to curating bibliographic descriptions. Graph data provide not only the greatest flexibility but also best reflect the world of rich, sometimes surprising, relationships found in bibliographic data. Importantly, this flexibility doesn’t preclude other content models, especially those that take a more hierarchical approach to bibliographic data.
+
+![](images/image3.svg)
 
 ---
 

@@ -2,9 +2,9 @@
 
 *bf:contribution/bf:Contribution*
 
-*bf:agent/bf:Agent*
+&nbsp;&nbsp;&nbsp;&nbsp;*bf:agent/bf:Agent*
 
-*bf:role/bf:Role*
+&nbsp;&nbsp;&nbsp;&nbsp;*bf:role/bf:Role*
 
 A bf:Contribution is an abstraction resource that mainly allows for the identification of a single Agent and that Agent’s roles with respect to the related resource, such as a bf:Work, bf:Hub, bf:Item, or bf:Instance. Leveraging an abstraction layer makes it possible not only to identify multiple roles the Agent played in the lifecycle of a resource, but also any other information that is specific to the relationship between an Agent and the BIBFRAME resource in question. Consider the following example that captures not only who the actor was but also his role:
 
@@ -26,7 +26,7 @@ A bf:Contribution is an abstraction resource that mainly allows for the identifi
 
 The abstraction leaves additional room for notes or other details that may be desirable to record.
 
-bf:PrimaryContribution is defined as a subclass of bf:Contribution. Identifying a Contribution resource as a bf:PrimaryContribution resource is analogous to Main Entry in MARC, and can be used for contribution resources created from the 100/110/111 MARC fields.
+bf:PrimaryContribution is defined as a subclass of bf:Contribution. Identifying a Contribution resource as a bf:PrimaryContribution resource is analogous to Main Entry in MARC, and can be used for contribution resources created from the 100/110/111 MARC fields. Use of this class is important for conversion to and from MARC, and reflects historical cataloging practice, but is not technically required.
 
 Agents also appear in subject resources, but a role is not included.
 
@@ -100,4 +100,4 @@ Example (agent as subject and no role): <https://id.loc.gov/resources/works/1329
 
 [Back to Table of Contents](../index.md)
 
-[Previous Page: Data Model: Common Properties and Classes](index.md) | [Next Page: Identifiers](identifiers.md)
+[Previous Page: Administrative Metadata](administrative-metadata.md) | [Next Page: Identifiers](identifiers.md)

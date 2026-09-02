@@ -25,9 +25,11 @@ Pipeline
    - Trim line breaks from both ends of every paragraph.
    - Squash fenced code (~~~xml ... ~~~ or ```xml ... ```) that was typed out
      as ordinary paragraphs down to a single placeholder paragraph, stashing
-     the code text (indentation included) on the side. A fence that doesn't
-     name a language is read as xml, and so is any run of two or more
-     paragraphs that are bare XML tag lines.
+     the code text (indentation included) on the side. Fences don't need a
+     paragraph to themselves; one can open or close a paragraph that also
+     carries other text. A fence that doesn't name a language is read as
+     xml, and so is any run of two or more paragraphs that are bare XML tag
+     lines.
    - Promote every paragraph the TOC points at to a real HeadingN at the
      TOC's level. Anything after the first line break in such a heading is
      split off into its own subtitle paragraph, and a marker paragraph goes
@@ -41,7 +43,10 @@ Pipeline
    has no level-2 children), level 2 makes a page file, and level 3+ become
    headings within a page.
 4. Render every page to GitHub-flavored Markdown via pandoc, then write out
-   the files, images, index pages and manifest.
+   the files, images, index pages and manifest. Each page gets a back-to-TOC
+   link plus previous/next links appended at the bottom, and every index.md
+   also closes with a <!-- NAV_ORDER ... --> comment naming its entries in
+   reading order.
 """
 
 from __future__ import annotations
@@ -93,6 +98,7 @@ ONTOLOGY_URL = {
 BACK_LINK_TEXT = "Back to Table of Contents"
 PREV_LINK_TEXT = "Previous Page"
 NEXT_LINK_TEXT = "Next Page"
+NAV_ORDER_TAG = "NAV_ORDER"  # appended to every index.md as an HTML comment spelling out the nav order
 MANIFEST_NAME = "generated-files.txt"
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -363,37 +369,71 @@ class CodeBlock:
 
 
 def collapse_code_regions(body) -> list[CodeBlock]:
-    """Swap each `fence ... fence` run of paragraphs for a placeholder paragraph."""
+    """Collapse everything between an opening fence and its closing partner
+    into a single placeholder paragraph.
+
+    Matching works line by line (a paragraph's text is split on its line
+    breaks first), so a fence may live in a paragraph of its own or share
+    one with the code it wraps.
+    """
     blocks: list[CodeBlock] = []
     open_para = None
     lang = ""
     lines: list[str] = []
-    for p in list(body.iter(w("p"))):
-        text = para_text(p, tab="\t", br="\n")
-        m = FENCE_RE.match(text)
-        if open_para is None:
-            if m:
-                open_para, lang, lines = p, m.group(2) or DEFAULT_CODE_LANG, []
-            elif FENCE_START_RE.match(text):
-                warn(f"paragraph looks like a code fence but is not standalone: {text[:60]!r}")
-            continue
-        if m:
-            while lines and not lines[0].strip():
-                lines.pop(0)
-            while lines and not lines[-1].strip():
-                lines.pop()
-            blocks.append(CodeBlock(lang, "\n".join(lines)))
-            for ch in list(open_para):
-                open_para.remove(ch)
-            open_para.append(make_text_paragraph(CODE_MARK.format(len(blocks) - 1))[0])
-            p.getparent().remove(p)
-            open_para = None
-            continue
+
+    def add_code(p, plines: list[str]) -> None:
         indent = " " * round(indent_twips(p) / TWIPS_PER_SPACE)
-        for line in text.replace(NBSP, " ").split("\n"):
-            line = line.expandtabs(TAB_SPACES).rstrip()
+        for line in plines:
+            line = line.replace(NBSP, " ").expandtabs(TAB_SPACES).rstrip()
             lines.append(indent + line if line else "")
-        p.getparent().remove(p)
+
+    def close_block(p, trailing: list[str]) -> None:
+        nonlocal open_para
+        while lines and not lines[0].strip():
+            lines.pop(0)
+        while lines and not lines[-1].strip():
+            lines.pop()
+        blocks.append(CodeBlock(lang, "\n".join(lines)))
+        for ch in list(open_para):
+            open_para.remove(ch)
+        open_para.append(make_text_paragraph(CODE_MARK.format(len(blocks) - 1))[0])
+        if p is not open_para:
+            p.getparent().remove(p)
+        if any(t.strip() for t in trailing):
+            warn(f"text after a closing fence moved to its own paragraph: {' '.join(trailing)[:60]!r}")
+            anchor = open_para
+            for t in trailing:
+                new_p = make_text_paragraph(t)
+                anchor.addnext(new_p)
+                anchor = new_p
+        open_para = None
+
+    for p in list(body.iter(w("p"))):
+        plines = para_text(p, tab="\t", br="\n").split("\n")
+        if open_para is None:
+            idx = next((i for i, ln in enumerate(plines) if FENCE_RE.match(ln)), None)
+            if idx is None:
+                if FENCE_START_RE.match(plines[0]):
+                    warn(f"paragraph looks like a code fence but was not recognized: {plines[0][:60]!r}")
+                continue
+            leading = plines[:idx]
+            if any(t.strip() for t in leading):
+                warn(f"text before an opening fence moved to its own paragraph: {' '.join(leading)[:60]!r}")
+                for t in leading:
+                    p.addprevious(make_text_paragraph(t))
+            m = FENCE_RE.match(plines[idx])
+            open_para, lang, lines = p, m.group(2) or DEFAULT_CODE_LANG, []
+            remaining = plines[idx + 1:]
+        else:
+            remaining = plines
+        close = next((i for i, ln in enumerate(remaining) if FENCE_RE.match(ln)), None)
+        if close is None:
+            add_code(p, remaining)
+            if p is not open_para:
+                p.getparent().remove(p)
+        else:
+            add_code(p, remaining[:close])
+            close_block(p, remaining[close + 1:])
     if open_para is not None:
         raise SystemExit("ERROR: unterminated code fence in document")
     collapse_unfenced_xml(body, blocks)
@@ -918,6 +958,12 @@ def relative_link(from_path: Path, to_path: Path) -> str:
     return Path(os.path.relpath(to_path.as_posix(), start)).as_posix()
 
 
+def nav_order_block(entries: list[str]) -> dict:
+    """Builds the <!-- NAV_ORDER ... --> comment: entries are file names for pages, directory names for chapters."""
+    body = "\n".join([NAV_ORDER_TAG, *entries])
+    return {"t": "RawBlock", "c": ["html", f"<!--\n{body}\n-->"]}
+
+
 def nav_blocks(page_path: Path, prev, nxt, back: bool) -> list:
     """The page footer: a rule, a back-to-TOC link, and then previous/next links following reading order."""
     blocks = [{"t": "HorizontalRule"}]
@@ -1018,7 +1064,9 @@ def render_all(front: list, chapters: list[Chapter], r: Renderer) -> dict[Path, 
     blocks.append({"t": "HorizontalRule"})
     blocks.append(header(2, str_inlines("Table of Contents")))
     blocks.append(toc_list(chapters, index_path))
-    files[index_path] = r.to_markdown(blocks + nav(index_path), index_path)
+    root_order = [index_path.name] + [(ch.dir or ch.path).name for ch in chapters]
+    blocks += nav(index_path) + [nav_order_block(root_order)]
+    files[index_path] = r.to_markdown(blocks, index_path)
 
     for ch in chapters:
         sec = ch.section
@@ -1026,7 +1074,10 @@ def render_all(front: list, chapters: list[Chapter], r: Renderer) -> dict[Path, 
         if ch.pages:
             blocks.append(header(2, str_inlines("Contents")))
             blocks.append(toc_list(chapters, ch.path, only=ch))
-        files[ch.path] = r.to_markdown(blocks + nav(ch.path), ch.path)
+        blocks += nav(ch.path)
+        if ch.pages:
+            blocks.append(nav_order_block([ch.path.name] + [pg.path.name for pg in ch.pages]))
+        files[ch.path] = r.to_markdown(blocks, ch.path)
         for pg in ch.pages:
             blocks = r.page_blocks(pg.section.title, pg.section.blocks[1:], pg.subs)
             files[pg.path] = r.to_markdown(blocks + nav(pg.path), pg.path)
