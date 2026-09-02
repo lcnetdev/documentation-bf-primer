@@ -96,7 +96,7 @@ The above represents five related resources of the bf:Work being described. bf:a
 
 The second method, the one that breaks notably from the expected way to handle language, treats some of the language information from the original MARC record as a note.
 
-Example (of a translated Work whose original language is recorded as a note): <https://id.loc.gov/resources/works/19052646.html>
+Example (of a translated Work whose original language – the ‘otx’ type below - is recorded as a note): <https://id.loc.gov/resources/works/19052646.html>
 
 ```xml
 <rdf:RDF>
@@ -107,6 +107,7 @@ Example (of a translated Work whose original language is recorded as a note): <h
     <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/eng"/>
     <bf:note>
       <bf:Note>
+        <!-- Original language: Italian -->
         <rdf:type rdf:resource="http://id.loc.gov/vocabulary/resourceComponents/otx"/>
         <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/ita"/>
       </bf:Note>

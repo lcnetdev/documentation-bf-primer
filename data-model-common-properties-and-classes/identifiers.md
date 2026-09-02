@@ -2,11 +2,11 @@
 
 *bf:identifiedBy/bf:Identifier*
 
-&nbsp;&nbsp;&nbsp;&nbsp;*rdf:value*
+<!-- LIST_STYLE: compact two-column -->
 
-&nbsp;&nbsp;&nbsp;&nbsp;[*bf:qualifier*](https://id.loc.gov/ontologies/bibframe.html#p_qualifier)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[*bf:status*](https://id.loc.gov/ontologies/bibframe.html#p_status)
+- *rdf:value*
+- [*bf:qualifier*](https://id.loc.gov/ontologies/bibframe.html#p_qualifier)
+- [*bf:status*](https://id.loc.gov/ontologies/bibframe.html#p_status)
 
 A BIBFRAME resource may have several identifiers. An Instance may have, for example, an ISBN, and a Work might have an ISSN or cluster ISSN, such as an ISSN-H. In bibliographic description, most Identifiers are associated with specific Instances or are part of administrative metadata.
 
@@ -43,7 +43,7 @@ Example (bf:Isbn subclass with added bf:qualifier property): <https://id.loc.gov
 </rdf:RDF>
 ```
 
-Example (bf:Isbn subclass with added bf:status resource): <https://id.loc.gov/resources/instances/23586254.html>
+Example (bf:Isbn subclass with added bf:status resource indicating the identifier is cancelled or invalid): <https://id.loc.gov/resources/instances/23586254.html>
 
 ```xml
 <rdf:RDF>
@@ -61,7 +61,7 @@ Example (bf:Isbn subclass with added bf:status resource): <https://id.loc.gov/re
 
 2)  Type indicated by a Standard Identifier class
 
-For an identifier types not defined in the BIBFRAME namespace but defined in the Standard Identifier dataset, bf:Identifier is used and the type is indicated by property rdf:type.
+For identifier types not defined in the BIBFRAME namespace but defined in the Standard Identifier dataset, bf:Identifier is used and the type is indicated by property rdf:type. The example below shows a reference to a MusicBrainz identifier value.
 
 ```xml
 <rdf:RDF>

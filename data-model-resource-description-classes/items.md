@@ -14,17 +14,14 @@ bf:Item
 
 ## Key properties: Item
 
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:contribution](https://id.loc.gov/ontologies/bibframe.html#p_contribution)
+<!-- LIST_STYLE: compact two-column -->
 
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:classification](https://id.loc.gov/ontologies/bibframe.html#p_classification)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:heldBy](https://id.loc.gov/ontologies/bibframe.html#p_heldBy)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:identifiedBy](https://id.loc.gov/ontologies/bibframe.html#p_identifiedBy)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:itemOf](https://id.loc.gov/ontologies/bibframe.html#p_itemOf)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:note](https://id.loc.gov/ontologies/bibframe.html#p_note)
+- [bf:contribution](https://id.loc.gov/ontologies/bibframe.html#p_contribution)
+- [bf:classification](https://id.loc.gov/ontologies/bibframe.html#p_classification)
+- [bf:heldBy](https://id.loc.gov/ontologies/bibframe.html#p_heldBy)
+- [bf:identifiedBy](https://id.loc.gov/ontologies/bibframe.html#p_identifiedBy)
+- [bf:itemOf](https://id.loc.gov/ontologies/bibframe.html#p_itemOf)
+- [bf:note](https://id.loc.gov/ontologies/bibframe.html#p_note)
 
 ## Implementation Consideration: Instances and Items
 

@@ -43,10 +43,12 @@ Pipeline
    has no level-2 children), level 2 makes a page file, and level 3+ become
    headings within a page.
 4. Render every page to GitHub-flavored Markdown via pandoc, then write out
-   the files, images, index pages and manifest. Each page gets a back-to-TOC
-   link plus previous/next links appended at the bottom, and every index.md
-   also closes with a <!-- NAV_ORDER ... --> comment naming its entries in
-   reading order.
+   the files, images, index pages and manifest. Every page ends with a
+   back-to-TOC link and previous/next links; each index.md additionally ends
+   with a <!-- NAV_ORDER ... --> comment listing its entries in TOC order.
+   Runs of indented single-token lines (property lists) become tight bullet
+   lists preceded by <!-- LIST_STYLE: compact two-column --> for the renderer;
+   bf:/bflc: terms in them are linked to the ontology page anchors.
 """
 
 from __future__ import annotations
@@ -91,6 +93,10 @@ NBSP = " "
 WORD_AUTO_ALT_RE = re.compile(r"AI-generated content may be incorrect", re.I)
 # Indented list lines that consist of a single vocabulary term become links to the ontology site.
 TERM_RE = re.compile(r"^(bf|bflc):([A-Za-z][A-Za-z0-9]*)$")
+TOKEN_RE = re.compile(r"^(?!https?://)\S+$")  # an indented single token (a property name, not a URL)
+# Runs of 2+ indented single-token lines become a tight bullet list preceded by this
+# marker so the renderer can style them (single spacing, two columns).
+LIST_STYLE_MARK = "<!-- LIST_STYLE: compact two-column -->"
 ONTOLOGY_URL = {
     "bf": "https://id.loc.gov/ontologies/bibframe.html",
     "bflc": "https://id.loc.gov/ontologies/bflc.html",
@@ -869,7 +875,7 @@ class Renderer:
                 return {"t": "Image", "c": [["", [], []], alt, [url, title]]}
             return None
 
-        return walk(blocks, block_fn, inline_fn)
+        return walk(group_term_lists(blocks), block_fn, inline_fn)
 
     # -- rendering a single page --------------------------------------------------
 
@@ -928,29 +934,85 @@ def tidy_markdown(md: str) -> str:
     return "\n".join(lines).strip("\n") + "\n"
 
 
-def link_vocabulary_term(b: dict):
-    """Turn an indented paragraph that holds only `bf:term` / `bflc:Term` into a link to the ontology anchor.
+def indent_parts(inlines):
+    """Split a leading @@INDENT@@ marker off a paragraph -> (marker inline or None, remaining inlines)."""
+    if inlines and inlines[0]["t"] == "Str":
+        m = INDENT_RE.match(inlines[0]["c"])
+        if m:
+            rest = ([{"t": "Str", "c": m.group(2)}] if m.group(2) else []) + inlines[1:]
+            return {"t": "Str", "c": INDENT_MARK.format(int(m.group(1)))}, rest
+    return None, inlines
 
-    Lines the author already linked themselves stay untouched. Properties
-    (lower-case initial) point at the page's #p_ anchors, classes (upper-case
-    initial) at #c_.
+
+def plain_text(inlines) -> str:
+    return inlines_text(inlines).replace(NBSP, " ").strip()
+
+
+def link_term(inlines):
+    """`bf:term` / `bflc:Term` -> link to the ontology anchor, unless already linked.
+
+    Properties (lower-case initial) use the page's #p_ anchors, classes
+    (upper-case initial) use #c_.
     """
-    inlines = b["c"]
-    if not inlines or inlines[0]["t"] != "Str":
-        return None
-    m_ind = INDENT_RE.match(inlines[0]["c"])
-    if not m_ind:
-        return None
-    head, rest = m_ind.group(2), inlines[1:]
-    text = (head + inlines_text(rest)).replace(NBSP, " ").strip()
-    m = TERM_RE.match(text)
-    if not m or '"t": "Link"' in json.dumps(rest):
-        return None
+    m = TERM_RE.match(plain_text(inlines))
+    if not m or '"t": "Link"' in json.dumps(inlines):
+        return inlines
     prefix, name = m.group(1), m.group(2)
     url = f"{ONTOLOGY_URL[prefix]}#{'c' if name[0].isupper() else 'p'}_{name}"
-    content = ([{"t": "Str", "c": head}] if head else []) + rest
-    marker = {"t": "Str", "c": INDENT_MARK.format(int(m_ind.group(1)))}
-    return {"t": b["t"], "c": [marker, {"t": "Link", "c": [["", [], []], content, [url, ""]]}]}
+    return [{"t": "Link", "c": [["", [], []], inlines, [url, ""]]}]
+
+
+def link_vocabulary_term(b: dict):
+    """Indented paragraph that is just a vocabulary term -> linked (see link_term)."""
+    marker, rest = indent_parts(b["c"])
+    if marker is None:
+        return None
+    linked = link_term(rest)
+    if linked is rest:
+        return None
+    return {"t": b["t"], "c": [marker] + linked}
+
+
+def is_term_line(b: dict) -> bool:
+    if b["t"] not in ("Para", "Plain"):
+        return False
+    marker, rest = indent_parts(b["c"])
+    return marker is not None and bool(TOKEN_RE.match(plain_text(rest)))
+
+
+def group_term_lists(blocks: list) -> list:
+    """Runs of 2+ consecutive indented single-token lines -> LIST_STYLE marker + tight bullet list."""
+    out: list = []
+    run: list = []
+
+    def flush():
+        if len(run) >= 2:
+            items = [[{"t": "Plain", "c": link_term(indent_parts(b["c"])[1])}] for b in run]
+            out.append({"t": "RawBlock", "c": ["html", LIST_STYLE_MARK]})
+            out.append(bullet_list(items))
+        else:
+            out.extend(run)
+        run.clear()
+
+    for b in blocks:
+        if is_term_line(b):
+            run.append(b)
+            continue
+        flush()
+        t = b["t"]
+        if t == "BlockQuote":
+            b = {"t": t, "c": group_term_lists(b["c"])}
+        elif t == "Div":
+            b = {"t": t, "c": [b["c"][0], group_term_lists(b["c"][1])]}
+        elif t == "BulletList":
+            b = {"t": t, "c": [group_term_lists(item) for item in b["c"]]}
+        elif t == "OrderedList":
+            b = {"t": t, "c": [b["c"][0], [group_term_lists(item) for item in b["c"][1]]]}
+        elif t == "Figure":
+            b = {"t": t, "c": [b["c"][0], b["c"][1], group_term_lists(b["c"][2])]}
+        out.append(b)
+    flush()
+    return out
 
 
 def relative_link(from_path: Path, to_path: Path) -> str:

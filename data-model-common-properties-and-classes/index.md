@@ -12,7 +12,7 @@
   - [Implementation consideration: Interoperability with MARC, RDA requirements](provision-activity.md#implementation-consideration-interoperability-with-marc-rda-requirements)
 - [Relationships](relationships.md)
   - [Implementation consideration: Careful deployment of both methods](relationships.md#implementation-consideration-careful-deployment-of-both-methods)
-  - [Implementation consideration: Transcribed Series information (aka MARC 490)](relationships.md#implementation-consideration-transcribed-series-information-aka-marc-490)
+  - [Implementation consideration: Transcribed Series information](relationships.md#implementation-consideration-transcribed-series-information)
   - [Implementation consideration: Placement](relationships.md#implementation-consideration-placement)
 - [Subjects](subjects.md)
   - [Implementation consideration: LCSH](subjects.md#implementation-consideration-lcsh)

@@ -6,27 +6,19 @@ Works represent the conceptual essence of a resource and include characteristics
 
 bf:Work properties seek to describe the who, what, and when of a resource. This includes a resource’s genre or form, its aboutness, relationships it may have to other Works in the ecosystem. The bf:Work information typically applies to any bf:Instances related to the bf:Work. The contributors, subjects, and language – all bf:Work properties - of a textual resource, a book for example, will remain the same whether published electronically as an ebook or physically as a hardback or a paperback – all bf:Instance properties.
 
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:classification](https://id.loc.gov/ontologies/bibframe.html#p_classification)
+<!-- LIST_STYLE: compact two-column -->
 
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:content](https://id.loc.gov/ontologies/bibframe.html#p_content)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:contribution](https://id.loc.gov/ontologies/bibframe.html#p_contribution)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:ensemble](https://id.loc.gov/ontologies/bibframe.html#p_mediumComponent)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:genreForm](https://id.loc.gov/ontologies/bibframe.html#p_genreForm)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:hasInstance](https://id.loc.gov/ontologies/bibframe.html#p_hasInstance)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:language](https://id.loc.gov/ontologies/bibframe.html#p_language)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:note](https://id.loc.gov/ontologies/bibframe.html#p_note)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:relation](https://id.loc.gov/ontologies/bibframe.html#p_relation)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:subject](https://id.loc.gov/ontologies/bibframe.html#p_subject)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:title](https://id.loc.gov/ontologies/bibframe.html#p_title)
+- [bf:classification](https://id.loc.gov/ontologies/bibframe.html#p_classification)
+- [bf:content](https://id.loc.gov/ontologies/bibframe.html#p_content)
+- [bf:contribution](https://id.loc.gov/ontologies/bibframe.html#p_contribution)
+- [bf:ensemble](https://id.loc.gov/ontologies/bibframe.html#p_mediumComponent)
+- [bf:genreForm](https://id.loc.gov/ontologies/bibframe.html#p_genreForm)
+- [bf:hasInstance](https://id.loc.gov/ontologies/bibframe.html#p_hasInstance)
+- [bf:language](https://id.loc.gov/ontologies/bibframe.html#p_language)
+- [bf:note](https://id.loc.gov/ontologies/bibframe.html#p_note)
+- [bf:relation](https://id.loc.gov/ontologies/bibframe.html#p_relation)
+- [bf:subject](https://id.loc.gov/ontologies/bibframe.html#p_subject)
+- [bf:title](https://id.loc.gov/ontologies/bibframe.html#p_title)
 
 ## Implementation consideration: BIBFRAME Work and RDA Work
 

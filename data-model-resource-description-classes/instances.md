@@ -8,31 +8,21 @@ Multiple Instances can relate to a single Work, and this is where much of the po
 
 bf:Instance properties seek to describe the who, what, where, when, and how of an acquirable resource. This may include where a resource was published or distributed, who published or distributed it, and when. Details about its existence, such as page numbers or dimensions for physical material or bytes and file types for electronic. Identifiers associated with those specific physical or electronic resources, such as system numbers, ISBNs, control numbers, etc.
 
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:carrier](https://id.loc.gov/ontologies/bibframe.html#p_carrier)
+<!-- LIST_STYLE: compact two-column -->
 
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:copyrightDate](https://id.loc.gov/ontologies/bibframe.html#p_copyrightDate)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:dimensions](https://id.loc.gov/ontologies/bibframe.html#p_dimensions)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:distributionStatement](https://id.loc.gov/ontologies/bibframe.html#p_distributionStatement)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:duration](https://id.loc.gov/ontologies/bibframe.html#p_duration)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:electronicLocator](https://id.loc.gov/ontologies/bibframe.html#p_electronicLocator)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:extent](https://id.loc.gov/ontologies/bibframe.html#p_extent)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:identifiedBy](https://id.loc.gov/ontologies/bibframe.html#p_identifiedBy)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:instanceOf](https://id.loc.gov/ontologies/bibframe.html#p_instanceOf)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:media](https://id.loc.gov/ontologies/bibframe.html#p_media)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:note](https://id.loc.gov/ontologies/bibframe.html#p_note)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:provisionActivity](https://id.loc.gov/ontologies/bibframe.html#p_classification)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:publicationStatement](https://id.loc.gov/ontologies/bibframe.html#p_publicationStatement)
+- [bf:carrier](https://id.loc.gov/ontologies/bibframe.html#p_carrier)
+- [bf:copyrightDate](https://id.loc.gov/ontologies/bibframe.html#p_copyrightDate)
+- [bf:dimensions](https://id.loc.gov/ontologies/bibframe.html#p_dimensions)
+- [bf:distributionStatement](https://id.loc.gov/ontologies/bibframe.html#p_distributionStatement)
+- [bf:duration](https://id.loc.gov/ontologies/bibframe.html#p_duration)
+- [bf:electronicLocator](https://id.loc.gov/ontologies/bibframe.html#p_electronicLocator)
+- [bf:extent](https://id.loc.gov/ontologies/bibframe.html#p_extent)
+- [bf:identifiedBy](https://id.loc.gov/ontologies/bibframe.html#p_identifiedBy)
+- [bf:instanceOf](https://id.loc.gov/ontologies/bibframe.html#p_instanceOf)
+- [bf:media](https://id.loc.gov/ontologies/bibframe.html#p_media)
+- [bf:note](https://id.loc.gov/ontologies/bibframe.html#p_note)
+- [bf:provisionActivity](https://id.loc.gov/ontologies/bibframe.html#p_classification)
+- [bf:publicationStatement](https://id.loc.gov/ontologies/bibframe.html#p_publicationStatement)
 
 ## Implementation Consideration: Secondary Instances
 

@@ -2,9 +2,10 @@
 
 *bf:contribution/bf:Contribution*
 
-&nbsp;&nbsp;&nbsp;&nbsp;*bf:agent/bf:Agent*
+<!-- LIST_STYLE: compact two-column -->
 
-&nbsp;&nbsp;&nbsp;&nbsp;*bf:role/bf:Role*
+- *bf:agent/bf:Agent*
+- *bf:role/bf:Role*
 
 A bf:Contribution is an abstraction resource that mainly allows for the identification of a single Agent and that Agent’s roles with respect to the related resource, such as a bf:Work, bf:Hub, bf:Item, or bf:Instance. Leveraging an abstraction layer makes it possible not only to identify multiple roles the Agent played in the lifecycle of a resource, but also any other information that is specific to the relationship between an Agent and the BIBFRAME resource in question. Consider the following example that captures not only who the actor was but also his role:
 
@@ -34,15 +35,13 @@ The Relators dataset, published by the Library of Congress’s Linked Data Servi
 
 bf:Agent has subclasses:
 
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:Person](https://id.loc.gov/ontologies/bibframe.html#c_Person)
+<!-- LIST_STYLE: compact two-column -->
 
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:Family](https://id.loc.gov/ontologies/bibframe.html#c_Family)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:Organization](https://id.loc.gov/ontologies/bibframe.html#c_Organization)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:Jurisdiction](https://id.loc.gov/ontologies/bibframe.html#c_Jurisdiction)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:Meeting](https://id.loc.gov/ontologies/bibframe.html#c_Meeting)
+- [bf:Person](https://id.loc.gov/ontologies/bibframe.html#c_Person)
+- [bf:Family](https://id.loc.gov/ontologies/bibframe.html#c_Family)
+- [bf:Organization](https://id.loc.gov/ontologies/bibframe.html#c_Organization)
+- [bf:Jurisdiction](https://id.loc.gov/ontologies/bibframe.html#c_Jurisdiction)
+- [bf:Meeting](https://id.loc.gov/ontologies/bibframe.html#c_Meeting)
 
 Example (agent and single role): <http://id.loc.gov/resources/works/22481758>
 

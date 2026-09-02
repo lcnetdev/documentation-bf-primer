@@ -32,13 +32,12 @@ In addition to the following two sections, more information about Hubs may be fo
 
 ## Key properties and classes: Hub
 
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:title](https://id.loc.gov/ontologies/bibframe.html#p_title)
+<!-- LIST_STYLE: compact two-column -->
 
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:contribution](https://id.loc.gov/ontologies/bibframe.html#p_contribution)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:relation](https://id.loc.gov/ontologies/bibframe.html#p_relation)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[bf:relationship](https://id.loc.gov/ontologies/bibframe.html#p_relationship)
+- [bf:title](https://id.loc.gov/ontologies/bibframe.html#p_title)
+- [bf:contribution](https://id.loc.gov/ontologies/bibframe.html#p_contribution)
+- [bf:relation](https://id.loc.gov/ontologies/bibframe.html#p_relation)
+- [bf:relationship](https://id.loc.gov/ontologies/bibframe.html#p_relationship)
 
 ## BIBFRAME Hubs and MARC
 

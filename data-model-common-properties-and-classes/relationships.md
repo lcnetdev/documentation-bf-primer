@@ -12,13 +12,13 @@ The direct method employs an object property to relate two resources to one anot
 
 The indirect method for relationships implements a model very similar to the bf:Contribution model. The indirect method, like the one for bf:Contribution, introduces an abstraction resource that bundles one or more relationship designators alongside a reference to one or more associated resources.
 
-work1 bf:relation \_r
+work1 bf:relation \<r1\>
 
-&nbsp;&nbsp;&nbsp;&nbsp;\_r rdf:type \<bf:Relation\> .
+&nbsp;&nbsp;&nbsp;&nbsp;\<r1\> rdf:type \<bf:Relation\> .
 
-&nbsp;&nbsp;&nbsp;&nbsp;\_r bf:relationship \<relationships:translationOf\> .
+&nbsp;&nbsp;&nbsp;&nbsp;\<r1\> bf:relationship \<relationships:translationOf\> .
 
-&nbsp;&nbsp;&nbsp;&nbsp;\_r bf:associatedResource \<work2\>
+&nbsp;&nbsp;&nbsp;&nbsp;\<r1\> bf:associatedResource \<work2\>
 
 Leveraging an abstraction layer makes it possible not only to identify multiple relationships the source resource has with an Associated Resource, but also include additional information pertaining to the related resources as well as expressing more complex relationship patterns.
 
@@ -142,7 +142,7 @@ The other place the Library uses a direct Work to Work relationship is for the h
 
 In summation, while having two ways to implement relationships introduces variation, deliberate deployment can result in consistent representation.
 
-## Implementation consideration: Transcribed Series information (aka MARC 490)
+## Implementation consideration: Transcribed Series information
 
 The Library has modelled all related Series as a related Work/Series relationship employing the indirect method. For those more familiar with MARC, this includes the following fields: 800, 810, 811, 830, and 490. Past and present cataloging practices (i.e. RDA) relegate certain information to specific parts of the model based on the method of recordation. In RDA, for example, *transcribed* information is associated with an RDA Manifestation. Ergo, since the BIBFRAME Instance is closest to the concept of an RDA Manifestation (worth remembering: close is not the same as “equal to”), transcribed information, such as Series information recorded in the MARC 490 field, belongs with the Instance, or so the logic goes. But the MARC 490 is merely a loose way of capturing a relationship between two resources – a Work and its related Series. In MARC, the pairing of 490s and 830s, which represent the very same Series except in controlled form, underscores that, despite the method of recordation, this is a relationship between two resources first and foremost. Thus, in BIBFRAME a relationship to a Series is treated uniformly at the model level – they are all placed on the bf:Work. (The associated resource for one of these “transcribed” Series is still a bf:Series, just as a resource converted from an 830 is, but it is marked as transcribed and therefore “uncontrolled.” Catalogers are expected to transcribe the information in BIBFRAME just as they are in MARC.)
 

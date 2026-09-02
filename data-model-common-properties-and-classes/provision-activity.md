@@ -30,7 +30,7 @@ Example 1:
 </rdf:RDF>
 ```
 
-The example above represents the ideal. The bf:ProvisionActivity is identified as a “Publication,” has a coded date, and has a coded place. The basic ingredients of any event – what, when, and where. One could, if desired, add a bf:agent to the bf:ProvisionActivity resource to identify the publisher (Collins Press). (Likewise, the city of Cork could also have been identified versus the country as place of publication.) Underneath is a human readable bf:publicationStatement formatted with ISBD punctuation, the form long used for displaying this information to library end users.
+The example above represents the ideal. The bf:ProvisionActivity is identified as a “Publication,” has a coded date, and has a coded place. The basic ingredients of any event – what, when, and where. One could, if desired, add a bf:agent to the bf:ProvisionActivity resource to identify the publisher (Collins Press). (Likewise, the city of Cork could also have been identified versus the country as place of publication.) Underneath is the human readable provision activity in statement form using bf:publicationStatement formatted with ISBD punctuation, the form long used for displaying this information to library end users.
 
 Provision Activity resources are repeatable within an Instance. There might be one for Distribution and another for Publication. Serial resources tend to have multiple Provision Activity resources, each recording a different publication event in the life of a long-running serial publication.
 

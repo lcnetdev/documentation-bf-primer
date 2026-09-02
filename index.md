@@ -43,7 +43,7 @@ BIBFRAME (BF) provides a model for representing bibliographic data in a linked d
     - [Implementation consideration: Interoperability with MARC, RDA requirements](data-model-common-properties-and-classes/provision-activity.md#implementation-consideration-interoperability-with-marc-rda-requirements)
   - [Relationships](data-model-common-properties-and-classes/relationships.md)
     - [Implementation consideration: Careful deployment of both methods](data-model-common-properties-and-classes/relationships.md#implementation-consideration-careful-deployment-of-both-methods)
-    - [Implementation consideration: Transcribed Series information (aka MARC 490)](data-model-common-properties-and-classes/relationships.md#implementation-consideration-transcribed-series-information-aka-marc-490)
+    - [Implementation consideration: Transcribed Series information](data-model-common-properties-and-classes/relationships.md#implementation-consideration-transcribed-series-information)
     - [Implementation consideration: Placement](data-model-common-properties-and-classes/relationships.md#implementation-consideration-placement)
   - [Subjects](data-model-common-properties-and-classes/subjects.md)
     - [Implementation consideration: LCSH](data-model-common-properties-and-classes/subjects.md#implementation-consideration-lcsh)
