@@ -13,7 +13,6 @@ A Hub need be no more than this:
         <bf:mainTitle>Odyssey. English</bf:mainTitle>
       </bf:Title>
     </bf:title>
-    <bf:title>
     <bf:contribution>
       <bf:Contribution>
         <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/PrimaryContribution"/>
