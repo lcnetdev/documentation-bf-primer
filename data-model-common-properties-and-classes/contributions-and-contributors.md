@@ -21,6 +21,7 @@ A bf:Contribution is an abstraction resource that mainly allows for the identifi
         <bf:dramaticRole>William Munny</bf:dramaticRole>
       </bf:Contribution>
     </bf:contribution>
+  </bf:Work>
 </rdf:RDF>
 ```
 

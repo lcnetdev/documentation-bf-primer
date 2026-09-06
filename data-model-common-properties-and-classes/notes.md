@@ -37,7 +37,7 @@ And a note about an award the Work earned.
         <rdfs:label>Peabody Award, 2004.</rdfs:label>
       </bf:Note>
     </bf:note>
-  <bf:Work>
+  </bf:Work>
 </rdf:RDF>
 ```
 
