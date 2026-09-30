@@ -29,7 +29,7 @@ Pipeline
      paragraph to themselves; one can open or close a paragraph that also
      carries other text. A fence that doesn't name a language is read as
      xml, and so is any run of two or more paragraphs that are bare XML tag
-     lines.
+     lines. Known typos in the examples (SOURCE_CORRECTIONS) are fixed here.
    - Promote every paragraph the TOC points at to a real HeadingN at the
      TOC's level. Anything after the first line break in such a heading is
      split off into its own subtitle paragraph, and a marker paragraph goes
@@ -119,6 +119,59 @@ PREV_LINK_TEXT = "Previous Page"
 NEXT_LINK_TEXT = "Next Page"
 NAV_ORDER_TAG = "NAV_ORDER"  # appended to every index.md as an HTML comment spelling out the nav order
 MANIFEST_NAME = "generated-files.txt"
+# Typos in the .docx's code examples that are fixed in the published Markdown but not (yet) in
+# the .docx, as (wrong, right) text. Each must match exactly one code block; once the
+# .docx itself is corrected the entry stops matching, a warning says so, and it can be deleted.
+SOURCE_CORRECTIONS = [
+    # Notes, the Peabody Award example: the Work is closed with an opening tag (PR #1)
+    ("    </bf:note>\n  <bf:Work>\n</rdf:RDF>", "    </bf:note>\n  </bf:Work>\n</rdf:RDF>"),
+    # Appendix B, Secondary Instances: unquoted and curly-quoted attribute values, and the last
+    # example closed with an opening <rdf:RDF>
+    (
+        "<bf:Instance rdf:about=http://id.loc.gov/resources/instances/7735577/>",
+        '<bf:Instance rdf:about="http://id.loc.gov/resources/instances/7735577"/>',
+    ),
+    (
+        "<bf:Work rdf:about=http://id.loc.gov/resources/works/7735577/>",
+        '<bf:Work rdf:about="http://id.loc.gov/resources/works/7735577"/>',
+    ),
+    (
+        "<bf:Instance rdf:about=http://id.loc.gov/resources/instances/7735577-85X-1/>",
+        '<bf:Instance rdf:about="http://id.loc.gov/resources/instances/7735577-85X-1"/>',
+    ),
+    (
+        "<bf:Instance rdf:about=http://id.loc.gov/resources/instances/19873666/>",
+        '<bf:Instance rdf:about="http://id.loc.gov/resources/instances/19873666"/>',
+    ),
+    (
+        '<bf:Work rdf:about="http://id.loc.gov/resources/works/19873666"\'/>',
+        '<bf:Work rdf:about="http://id.loc.gov/resources/works/19873666"/>',
+    ),
+    (
+        "<bf:Instance rdf:about=http://id.loc.gov/resources/instances/19873666-85X-1/>",
+        '<bf:Instance rdf:about="http://id.loc.gov/resources/instances/19873666-85X-1"/>',
+    ),
+    (
+        "<bf:Item rdf:about=http://id.loc.gov/resources/items/19873666/>",
+        '<bf:Item rdf:about="http://id.loc.gov/resources/items/19873666"/>',
+    ),
+    (
+        "<bf:Work rdf:about=”http://id.loc.gov/resources/works/7735577” />",
+        '<bf:Work rdf:about="http://id.loc.gov/resources/works/7735577" />',
+    ),
+    (
+        "<bf:Instance rdf:about=”http://id.loc.gov/resources/instances/19873666”>",
+        '<bf:Instance rdf:about="http://id.loc.gov/resources/instances/19873666">',
+    ),
+    (
+        "<bf:itemOf  rdf:resource=http://id.loc.gov/resources/instances/19873666/>",
+        '<bf:itemOf rdf:resource="http://id.loc.gov/resources/instances/19873666"/>',
+    ),
+    (
+        "    </bf:Item>\n<rdf:RDF>",
+        "    </bf:Item>\n</rdf:RDF>",
+    ),
+]
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 META_DIR = Path(__file__).resolve().parent
@@ -502,6 +555,18 @@ def collapse_unfenced_xml(body, blocks: list[CodeBlock]) -> None:
 # ---------------------------------------------------------------------------
 
 
+def apply_source_corrections(blocks: list[CodeBlock]) -> None:
+    """Carry the SOURCE_CORRECTIONS into the code blocks they belong to."""
+    for wrong, right in SOURCE_CORRECTIONS:
+        hits = [cb for cb in blocks if wrong in cb.text]
+        if len(hits) == 1 and hits[0].text.count(wrong) == 1:
+            hits[0].text = hits[0].text.replace(wrong, right)
+        elif not hits:
+            warn(f"source correction no longer matches anything (fixed in the .docx?), remove it: {wrong!r}")
+        else:
+            raise SystemExit(f"ERROR: source correction matches more than one place: {wrong!r}")
+
+
 def find_anchor_paragraph(body, anchor: str):
     for bm in body.iter(w("bookmarkStart")):
         if bm.get(w("name")) != anchor:
@@ -626,6 +691,7 @@ def preprocess_docx(src: Path, work: Path, debug_dir: Path | None) -> Preprocess
     for p in list(body.iter(w("p"))):
         strip_edge_breaks(p)
     code_blocks = collapse_code_regions(body)
+    apply_source_corrections(code_blocks)
     titles = normalize_headings(body, entries, styles)
     remove_empty_headings(body, styles)
     mark_indentation(body, styles)

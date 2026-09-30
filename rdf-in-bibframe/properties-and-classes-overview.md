@@ -165,4 +165,4 @@ Example: <https://id.loc.gov/resources/instances/20229412.html>
 
 [Back to Table of Contents](../index.md)
 
-[Previous Page: RDF in BIBFRAME](index.md) | [Next Page: Language and script codes](language-and-script-codes.md)
+[Previous Page: Composed, Decomposed, and Bounded Descriptions](composed-decomposed-and-bounded-descriptions.md) | [Next Page: Language and script codes](language-and-script-codes.md)

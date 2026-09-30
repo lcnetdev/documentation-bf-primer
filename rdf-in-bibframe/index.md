@@ -4,8 +4,13 @@ The BIBFRAME vocabulary consists of RDF classes and properties. Classes include 
 
 Other properties describe attributes – for example, the BIBFRAME “subject” property expresses an attribute of a Work (what it is about), and the property “dimensions” expresses an attribute of an Instance.
 
+Brought together, they collectively describe a resource, and then resources can be combined to create a small graph of information. The serialization of a single resource, or a graph, might be succinct or verbose. A graph is usually bounded in some way, so as not to be an infinite output of information.
+
 ## Contents
 
+- [Composed, Decomposed, and Bounded Descriptions](composed-decomposed-and-bounded-descriptions.md)
+  - [Composed and Decomposed Descriptions](composed-decomposed-and-bounded-descriptions.md#composed-and-decomposed-descriptions)
+  - [Bounded Descriptions](composed-decomposed-and-bounded-descriptions.md#bounded-descriptions)
 - [Properties and classes overview](properties-and-classes-overview.md)
   - [Datatype and object properties](properties-and-classes-overview.md#datatype-and-object-properties)
   - [URIs and labels](properties-and-classes-overview.md#uris-and-labels)
@@ -21,11 +26,12 @@ Other properties describe attributes – for example, the BIBFRAME “subject”
 
 [Back to Table of Contents](../index.md)
 
-[Previous Page: Titles](../data-model-common-properties-and-classes/titles.md) | [Next Page: Properties and classes overview](properties-and-classes-overview.md)
+[Previous Page: Titles](../data-model-common-properties-and-classes/titles.md) | [Next Page: Composed, Decomposed, and Bounded Descriptions](composed-decomposed-and-bounded-descriptions.md)
 
 <!--
 NAV_ORDER
 index.md
+composed-decomposed-and-bounded-descriptions.md
 properties-and-classes-overview.md
 language-and-script-codes.md
 -->

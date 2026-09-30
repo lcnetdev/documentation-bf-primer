@@ -82,4 +82,4 @@ Svenonius, Elaine. *The Intellectual Foundation of Information Organization*. Ca
 
 [Back to Table of Contents](index.md)
 
-[Previous Page: References and Links](references-and-links.md)
+[Previous Page: References and Links](references-and-links.md) | [Next Page: Appendix B: LC’s BIBFRAME Bounded Descriptions](appendix-b-lcs-bibframe-bounded-descriptions.md)

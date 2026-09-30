@@ -51,6 +51,9 @@ BIBFRAME (BF) provides a model for representing bibliographic data in a linked d
     - [Implementation consideration: MARC](data-model-common-properties-and-classes/titles.md#implementation-consideration-marc)
     - [Implementation consideration: Domain](data-model-common-properties-and-classes/titles.md#implementation-consideration-domain)
 - [RDF in BIBFRAME](rdf-in-bibframe/index.md)
+  - [Composed, Decomposed, and Bounded Descriptions](rdf-in-bibframe/composed-decomposed-and-bounded-descriptions.md)
+    - [Composed and Decomposed Descriptions](rdf-in-bibframe/composed-decomposed-and-bounded-descriptions.md#composed-and-decomposed-descriptions)
+    - [Bounded Descriptions](rdf-in-bibframe/composed-decomposed-and-bounded-descriptions.md#bounded-descriptions)
   - [Properties and classes overview](rdf-in-bibframe/properties-and-classes-overview.md)
     - [Datatype and object properties](rdf-in-bibframe/properties-and-classes-overview.md#datatype-and-object-properties)
     - [URIs and labels](rdf-in-bibframe/properties-and-classes-overview.md#uris-and-labels)
@@ -63,6 +66,7 @@ BIBFRAME (BF) provides a model for representing bibliographic data in a linked d
   - [Language and script codes](rdf-in-bibframe/language-and-script-codes.md)
 - [References and Links](references-and-links.md)
 - [Appendix A: More about Hubs](appendix-a-more-about-hubs.md)
+- [Appendix B: LC’s BIBFRAME Bounded Descriptions](appendix-b-lcs-bibframe-bounded-descriptions.md)
 
 ---
 
@@ -80,4 +84,5 @@ data-model-common-properties-and-classes
 rdf-in-bibframe
 references-and-links.md
 appendix-a-more-about-hubs.md
+appendix-b-lcs-bibframe-bounded-descriptions.md
 -->

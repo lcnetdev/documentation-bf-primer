@@ -108,7 +108,7 @@ to the simpler:
 
 Most of those properties – subtitle, date, qualifier, partName, partNumber – are defined in BIBFRAME to ease conversion to and from MARC, which expects titles to be parsed into smaller pieces by way of subfields. If compatibility with MARC is not of concern or required, handling titles as simple string literals of bf:mainTitle is advisable.
 
-Note order is difficult to impossible to maintain when the parts of titles are parsed into small sections.
+Note: order is also difficult to impossible to maintain when the parts of titles are parsed into small sections.
 
 ## Implementation consideration: Domain
 

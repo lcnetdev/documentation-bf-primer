@@ -1,4 +1,5 @@
 appendix-a-more-about-hubs.md
+appendix-b-lcs-bibframe-bounded-descriptions.md
 bibframe-and-content-models-such-as-rda.md
 data-model-common-properties-and-classes/administrative-metadata.md
 data-model-common-properties-and-classes/contributions-and-contributors.md
@@ -24,6 +25,7 @@ introduction/namespaces-and-examples.md
 introduction/organization-and-abbreviations.md
 introduction/special-terminology.md
 introduction/status-of-this-document.md
+rdf-in-bibframe/composed-decomposed-and-bounded-descriptions.md
 rdf-in-bibframe/index.md
 rdf-in-bibframe/language-and-script-codes.md
 rdf-in-bibframe/properties-and-classes-overview.md
