@@ -17,13 +17,13 @@ In addition to those types defined in the BIBFRAME vocabulary, the Variant Title
 
 ```xml
 <rdf:RDF>
-   <bf:Work>
-        <bf:title>
-            <bf:VariantTitle>
-                <rdf:type rdf:resource="http://id.loc.gov/vocabulary/vartitletype/tra" />
-                <bf:mainTitle xml:lang="fr">Le Prince et le Pauvre</bf:mainTitle>
-            </bf:VariantTitle>
-        </bf:title>
+  <bf:Work>
+    <bf:title>
+      <bf:VariantTitle>
+        <rdf:type rdf:resource="http://id.loc.gov/vocabulary/vartitletype/tra" />
+        <bf:mainTitle xml:lang="fr">Le Prince et le Pauvre</bf:mainTitle>
+      </bf:VariantTitle>
+    </bf:title>
   </bf:Work>
 </rdf:RDF>
 ```
@@ -47,13 +47,13 @@ Compare:
 
 ```xml
 <rdf:RDF>
-   <bf:Work>
-        <bf:title>
-            <bf:KeyTitle>
-                <bf:mainTitle>JAMA</bf:mainTitle>
-                <bf:qualifier>(Chicago, Ill.)</bf:qualifier>
-            </bf:KeyTitle>
-        </bf:title>
+  <bf:Work>
+    <bf:title>
+      <bf:KeyTitle>
+        <bf:mainTitle>JAMA</bf:mainTitle>
+        <bf:qualifier>(Chicago, Ill.)</bf:qualifier>
+      </bf:KeyTitle>
+    </bf:title>
   </bf:Work>
 </rdf:RDF>
 ```
@@ -62,12 +62,12 @@ to the simpler:
 
 ```xml
 <rdf:RDF>
-   <bf:Work>
-        <bf:title>
-            <bf:KeyTitle>
-                <bf:mainTitle>JAMA (Chicago, Ill.)</bf:mainTitle>
-            </bf:KeyTitle>
-        </bf:title>
+  <bf:Work>
+    <bf:title>
+      <bf:KeyTitle>
+        <bf:mainTitle>JAMA (Chicago, Ill.)</bf:mainTitle>
+      </bf:KeyTitle>
+    </bf:title>
   </bf:Work>
 </rdf:RDF>
 ```
@@ -78,14 +78,14 @@ Compare:
 
 ```xml
 <rdf:RDF>
-   <bf:Work>
-        <bf:title>
-            <bf:Title>
-                <bf:mainTitle>Superman</bf:mainTitle>
-                <bf:partName>The dark path</bf:partName>
-                <bf:partNumber>Vol. 3</bf:partNumber>
-            </bf:Title>
-        </bf:title>
+  <bf:Work>
+    <bf:title>
+      <bf:Title>
+        <bf:mainTitle>Superman</bf:mainTitle>
+        <bf:partName>The dark path</bf:partName>
+        <bf:partNumber>Vol. 3</bf:partNumber>
+      </bf:Title>
+    </bf:title>
   </bf:Work>
 </rdf:RDF>
 ```
@@ -94,12 +94,12 @@ to the simpler:
 
 ```xml
 <rdf:RDF>
-   <bf:Work>
-        <bf:title>
-            <bf:Title>
-                <bf:mainTitle>Superman. Vol. 3, The dark path</bf:mainTitle>
-            </bf:Title>
-        </bf:title>
+  <bf:Work>
+    <bf:title>
+      <bf:Title>
+        <bf:mainTitle>Superman. Vol. 3, The dark path</bf:mainTitle>
+      </bf:Title>
+    </bf:title>
   </bf:Work>
 </rdf:RDF>
 ```
@@ -118,7 +118,7 @@ Example (main title with no subtitle): <https://id.loc.gov/resources/instances/2
 
 ```xml
 <rdf:RDF>
-   <bf:Instance rdf:about="http://id.loc.gov/resources/instances/22753990">
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/22753990">
     <bf:title>
       <bf:Title>
         <bf:mainTitle>Do you like getting creative?</bf:mainTitle>
@@ -132,7 +132,7 @@ Example (main title and subtitle): <https://id.loc.gov/resources/instances/14279
 
 ```xml
 <rdf:RDF>
-   <bf:Instance rdf:about="http://id.loc.gov/resources/instances/14279282">
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/14279282">
     <bf:title>
       <bf:Title>
         <bf:mainTitle>The great deluge</bf:mainTitle>
@@ -148,7 +148,7 @@ Example (main title with part number and part name): <https://id.loc.gov/resourc
 
 ```xml
 <rdf:RDF>
-   <bf:Instance rdf:about="http://id.loc.gov/resources/instances/23416899">
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/23416899">
     <bf:title>
       <bf:Title>
         <bf:mainTitle>Superman: Action comics</bf:mainTitle>
@@ -164,7 +164,7 @@ Example (abbreviated title): <https://id.loc.gov/resources/works/18697382.html>
 
 ```xml
 <rdf:RDF>
-   <bf:Work rdf:about="http://id.loc.gov/resources/works/18697382">
+  <bf:Work rdf:about="http://id.loc.gov/resources/works/18697382">
     <bflc:aap>JDR clinical and translational research</bflc:aap>
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Text"/>
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Serial"/>
@@ -173,9 +173,9 @@ Example (abbreviated title): <https://id.loc.gov/resources/works/18697382.html>
         <bf:mainTitle>JDR clin. trans. res.</bf:mainTitle>
         <bf:qualifier>(Online)</bf:qualifier>
         <bf:assigner>
-            <bf:Agent>
-                <bf:code>issnkey</bf:code>
-            </bf:Agent>
+          <bf:Agent>
+            <bf:code>issnkey</bf:code>
+          </bf:Agent>
         </bf:assigner>
       </bf:AbbreviatedTitle>
     </bf:title>
@@ -187,7 +187,7 @@ Example (key title): <https://id.loc.gov/resources/works/11260957.html>
 
 ```xml
 <rdf:RDF>
-   <bf:Work rdf:about="http://id.loc.gov/resources/works/11260957">
+  <bf:Work rdf:about="http://id.loc.gov/resources/works/11260957">
     <bflc:aap>JAMA : the journal of the American Medical Association</bflc:aap>
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Text"/>
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Serial"/>
@@ -196,9 +196,9 @@ Example (key title): <https://id.loc.gov/resources/works/11260957.html>
         <bf:mainTitle>JAMA</bf:mainTitle>
         <bf:qualifier>(Chic. Ill.)</bf:qualifier>
         <bf:assigner>
-            <bf:Agent>
-                <bf:code>issnkey</bf:code>
-            </bf:Agent>
+          <bf:Agent>
+            <bf:code>issnkey</bf:code>
+          </bf:Agent>
         </bf:assigner>
       </bf:AbbreviatedTitle>
     </bf:title>
@@ -210,7 +210,7 @@ Example (variant title type, spine title): <https://id.loc.gov/resources/instanc
 
 ```xml
 <rdf:RDF>
-   <bf:Instance rdf:about="http://id.loc.gov/resources/instances/23227325">
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/23227325">
     <bf:title>
       <bf:Title>
         <bf:mainTitle>UNESCO Namibia National Commission @30</bf:mainTitle>
@@ -231,7 +231,7 @@ Example (variant title type, added title page title): <https://id.loc.gov/resour
 
 ```xml
 <rdf:RDF>
-   <bf:Work rdf:about="http://id.loc.gov/resources/works/in00024299736">
+  <bf:Work rdf:about="http://id.loc.gov/resources/works/in00024299736">
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Text"/>
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Monograph"/>
     <bf:title>

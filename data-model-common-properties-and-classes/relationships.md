@@ -28,17 +28,17 @@ For example, sometimes it is beneficial to include a note (for a human) that aim
 
 ```xml
 <rdf:RDF>
-   <bf:Work rdf:about="http://id.loc.gov/resources/works/11133555">
+  <bf:Work rdf:about="http://id.loc.gov/resources/works/11133555">
     <bflc:aap>Social register, Washington</bflc:aap>
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Text"/>
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Serial"/>
     <bf:relation>
       <bf:Relation>
         <bf:note>
-            <bf:Note>
-                <rdf:type rdf:resource="http://id.loc.gov/vocabulary/mnotetype/relnote"/>
-                <rdfs:label>Supplemented in the summer by: Social register, summer (covers all city editions of the Social register).</rdfs:label>
-            </bf:Note>
+          <bf:Note>
+            <rdf:type rdf:resource="http://id.loc.gov/vocabulary/mnotetype/relnote"/>
+            <rdfs:label>Supplemented in the summer by: Social register, summer (covers all city editions of the Social register).</rdfs:label>
+          </bf:Note>
         </bf:note>
         <bf:relationship rdf:resource="http://id.loc.gov/vocabulary/relationship/supplement"/>
         <bf:associatedResource rdf:resource="http://id.loc.gov/resources/works/13123320"/>
@@ -52,7 +52,7 @@ In another example, the Work is part of a Series, which is to say the Work relat
 
 ```xml
 <rdf:RDF>
-   <bf:Work rdf:about="http://id.loc.gov/resources/works/21883950">
+  <bf:Work rdf:about="http://id.loc.gov/resources/works/21883950">
     <bflc:aap>Élite burial practices and processes of urbanization at Gabii : the non-adult tombs from area D of the Gabii project excavations</bflc:aap>
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Text"/>
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Monograph"/>
@@ -71,17 +71,17 @@ The following example not only contains a Note but represents a complex relation
 
 ```xml
 <rdf:RDF>
-   <bf:Work rdf:about="http://id.loc.gov/resources/works/11257335">
+  <bf:Work rdf:about="http://id.loc.gov/resources/works/11257335">
     <bflc:aap>The daily dramatic chronicle</bflc:aap>
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Text"/>
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Serial"/>
     <bf:relation>
       <bf:Relation>
         <bf:note>
-            <bf:Note>
-                <rdf:type rdf:resource="http://id.loc.gov/vocabulary/mnotetype/relnote"/>
-                <rdfs:label>Split into: Daily morning chronicle (San Francisco, Calif.), and: Dramatic review (San Francisco, Calif.).</rdfs:label>
-            </bf:Note>
+          <bf:Note>
+            <rdf:type rdf:resource="http://id.loc.gov/vocabulary/mnotetype/relnote"/>
+            <rdfs:label>Split into: Daily morning chronicle (San Francisco, Calif.), and: Dramatic review (San Francisco, Calif.).</rdfs:label>
+          </bf:Note>
         </bf:note>
         <bf:relationship rdf:resource="http://id.loc.gov/vocabulary/relationship/splitinto"/>
         <bf:associatedResource rdf:resource="http://id.loc.gov/resources/works/11257334"/>
@@ -114,17 +114,17 @@ In at least two other places, the Library uses the direct method for relationshi
 
 ```xml
 <rdf:RDF>
-   <bf:Work rdf:about="http://id.loc.gov/resources/works/19533794">
+  <bf:Work rdf:about="http://id.loc.gov/resources/works/19533794">
     <bflc:aap>Social register, Pittsburgh</bflc:aap>
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Text"/>
     <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Serial"/>
     <bf:relation>
       <bf:Relation>
         <bf:note>
-            <bf:Note>
-                <rdf:type rdf:resource="http://id.loc.gov/vocabulary/mnotetype/relnote"/>
-                <rdfs:label>Merged with social registers of various cities, including: Social register, Baltimore; Social register, Boston; Social register, Buffalo; Social register, Chicago; Social register, Cincinnati &amp; Dayton; Social register, Cleveland; Social register, New York; Social register, Philadelphia, including Wilmington; Social register Providence; Social register, St. Louis; Social register, San Francisco; and: Social register, Washington; to form: Social register.</rdfs:label>
-            </bf:Note>
+          <bf:Note>
+            <rdf:type rdf:resource="http://id.loc.gov/vocabulary/mnotetype/relnote"/>
+            <rdfs:label>Merged with social registers of various cities, including: Social register, Baltimore; Social register, Boston; Social register, Buffalo; Social register, Chicago; Social register, Cincinnati &amp; Dayton; Social register, Cleveland; Social register, New York; Social register, Philadelphia, including Wilmington; Social register Providence; Social register, St. Louis; Social register, San Francisco; and: Social register, Washington; to form: Social register.</rdfs:label>
+          </bf:Note>
         </bf:note>
         <bf:relationship rdf:resource="http://id.loc.gov/vocabulary/relationship/mergedtoform"/>
         <bf:mergedWith rdf:resource="http://id.loc.gov/resources/works/19545917"/>

@@ -37,10 +37,10 @@ Example (showing specific cataloging details): <https://id.loc.gov/resources/wor
         <bflc:encodingLevel rdf:resource="http://id.loc.gov/vocabulary/menclvl/f"/>
         <bf:descriptionConventions rdf:resource="http://id.loc.gov/vocabulary/descriptionConventions/isbd"/>
         <bf:identifiedBy>
-            <bf:Local>
-                <rdf:value>20898769</rdf:value>
-                <bf:assigner rdf:resource="http://id.loc.gov/vocabulary/organizations/dlc"/>
-            </bf:Local>
+          <bf:Local>
+            <rdf:value>20898769</rdf:value>
+            <bf:assigner rdf:resource="http://id.loc.gov/vocabulary/organizations/dlc"/>
+          </bf:Local>
         </bf:identifiedBy>
         <bf:descriptionLanguage rdf:resource="http://id.loc.gov/vocabulary/languages/eng"/>
         <bf:descriptionConventions rdf:resource="http://id.loc.gov/vocabulary/descriptionConventions/rda"/>

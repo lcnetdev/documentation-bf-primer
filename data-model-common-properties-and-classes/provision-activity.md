@@ -65,7 +65,7 @@ Example (publication): <https://id.loc.gov/resources/instances/23586254.html>
 
 ```xml
 <rdf:RDF>
-   <bf:Instance rdf:about="http://id.loc.gov/resources/instances/23586254">
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/23586254">
     <bf:issuance rdf:resource="http://id.loc.gov/vocabulary/issuance/mono"/>
     <bf:provisionActivity>
       <bf:ProvisionActivity>
@@ -75,7 +75,7 @@ Example (publication): <https://id.loc.gov/resources/instances/23586254.html>
         <bflc:simplePlace>New York</bflc:simplePlace>
         <bflc:simpleAgent>G. P. Putnam's Sons</bflc:simpleAgent>
         <bflc:simpleDate>2025</bflc:simpleDate>
-       </bf:ProvisionActivity>
+      </bf:ProvisionActivity>
     </bf:provisionActivity>
     <bf:publicationStatement>New York: G. P. Putnam's Sons, 2025</bf:publicationStatement>
   </bf:Instance>
@@ -86,7 +86,7 @@ Example (distribution): <https://id.loc.gov/resources/instances/21648911.html>
 
 ```xml
 <rdf:RDF>
-   <bf:Instance rdf:about="http://id.loc.gov/resources/instances/21648911">
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/21648911">
     <bf:provisionActivity>
       <bf:ProvisionActivity>
         <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Distribution"/>
@@ -104,7 +104,7 @@ Example (provision activity with status resource): <https://id.loc.gov/resources
 
 ```xml
 <rdf:RDF>
-   <bf:Instance rdf:about="http://id.loc.gov/resources/instances/15387794">
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/15387794">
     <bf:issuance rdf:resource="http://id.loc.gov/vocabulary/issuance/serl"/>
     <bf:provisionActivity>
       <bf:ProvisionActivity>

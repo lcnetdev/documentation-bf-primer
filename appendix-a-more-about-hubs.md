@@ -12,21 +12,22 @@ An example (the same as earlier):
 
 ```xml
 <rdf:RDF>
-<bf:Hub rdf:about="http://id.loc.gov/resources/hubs/4978c720-ca4f-ca86-2d7e-a15f8245ade9">
-    <bflc:aap>Homer. Odyssey. English</bflc:aap>    <bf:title>
+  <bf:Hub rdf:about="http://id.loc.gov/resources/hubs/4978c720-ca4f-ca86-2d7e-a15f8245ade9">
+    <bflc:aap>Homer. Odyssey. English</bflc:aap>
+    <bf:title>
       <bf:Title>
-    <bf:mainTitle>Odyssey. English</bf:mainTitle>
+        <bf:mainTitle>Odyssey. English</bf:mainTitle>
       </bf:Title>
     </bf:title>
     <bf:contribution>
       <bf:Contribution>
-    <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/PrimaryContribution"/>
-    <bf:agent rdf:resource="http://id.loc.gov/rwo/agents/n78095639"/>
-    <bf:role rdf:resource="http://id.loc.gov/vocabulary/relators/ctb"/>
+        <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/PrimaryContribution"/>
+        <bf:agent rdf:resource="http://id.loc.gov/rwo/agents/n78095639"/>
+        <bf:role rdf:resource="http://id.loc.gov/vocabulary/relators/ctb"/>
       </bf:Contribution>
     </bf:contribution>
     <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/eng"/>
-</bf:Hub>
+  </bf:Hub>
 </rdf:RDF>
 ```
 

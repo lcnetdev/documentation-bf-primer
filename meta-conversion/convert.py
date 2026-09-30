@@ -29,7 +29,10 @@ Pipeline
      paragraph to themselves; one can open or close a paragraph that also
      carries other text. A fence that doesn't name a language is read as
      xml, and so is any run of two or more paragraphs that are bare XML tag
-     lines. Known typos in the examples (SOURCE_CORRECTIONS) are fixed here.
+     lines. Known typos in the examples (SOURCE_CORRECTIONS) are fixed here,
+     a tag typed on the same line as the element before it is moved to its
+     own line, and every xml block is re-indented from its tag nesting, two
+     spaces per level, because the document mixes spaces, tabs and Word indents.
    - Promote every paragraph the TOC points at to a real HeadingN at the
      TOC's level. Anything after the first line break in such a heading is
      split off into its own subtitle paragraph, and a marker paragraph goes
@@ -86,6 +89,13 @@ FENCE_RE = re.compile(r"^\s*([~`]{2,})[ \t]*([A-Za-z0-9_+.#-]*)[ \t]*$")
 FENCE_START_RE = re.compile(r"^\s*[~`]{2,}")
 DEFAULT_CODE_LANG = "xml"  # the language we assume when a fence doesn't declare one
 XML_LINE_RE = re.compile(r"^\s*<[A-Za-z/!?][^\n]*>\s*$")  # a paragraph that is nothing but a single XML tag
+# XML examples are re-indented from their tag nesting, since the .docx mixes typed spaces, tabs
+# and Word paragraph indents that don't line up with the structure.
+XML_INDENT = "  "
+XML_TAG_RE = re.compile(r"<[^<>]*>")
+# A tag that starts right after a finished element on the same line is a sibling typed on one
+# line; it gets a line of its own.
+XML_SIBLING_RE = re.compile(r"(/>|</[^<>]*>)[ \t]*(?=<[^/!?])")
 SECTION_MARK = "@@SECTION:{}@@"
 CODE_MARK = "@@CODE:{}@@"
 INDENT_MARK = "@@INDENT:{}@@"
@@ -567,6 +577,60 @@ def apply_source_corrections(blocks: list[CodeBlock]) -> None:
             raise SystemExit(f"ERROR: source correction matches more than one place: {wrong!r}")
 
 
+def reindent_xml(text: str) -> str:
+    """Indent every line of an XML snippet by its nesting depth (XML_INDENT per level).
+
+    Only the leading whitespace of each line changes: a line opening one or more
+    elements pushes the lines after it in by one level per element still open at
+    its end, a line that starts with a closing tag sits one level out, and the
+    continuation lines of a tag that spans several lines sit two levels in.
+    Text lines are indented like the tags around them.
+    """
+    out = []
+    depth = 0
+    carry = ""  # the unfinished part of a tag that started on an earlier line
+    for line in text.split("\n"):
+        stripped = line.strip()
+        if not stripped:
+            out.append("")
+            continue
+        level = depth + 2 if carry else depth
+        scan = carry + " " + stripped if carry else stripped
+        first = True
+        for m in XML_TAG_RE.finditer(scan):
+            tag = m.group(0)
+            if tag.startswith(("<!", "<?")):
+                kind = "other"
+            elif tag.startswith("</"):
+                kind = "close"
+            elif tag.endswith("/>"):
+                kind = "self"
+            else:
+                kind = "open"
+            if first and not carry and kind == "close" and m.start() == 0:
+                level = depth - 1
+            first = False
+            if kind == "open":
+                depth += 1
+            elif kind == "close":
+                depth = max(0, depth - 1)
+        tail = scan.rfind("<")
+        carry = scan[tail:] if tail > scan.rfind(">") else ""
+        out.append(XML_INDENT * max(0, level) + stripped)
+    return "\n".join(out)
+
+
+def split_sibling_tags(text: str) -> str:
+    """Put a tag that follows a finished element on the same line onto its own line."""
+    return XML_SIBLING_RE.sub(r"\1\n", text)
+
+
+def reindent_code_blocks(blocks: list[CodeBlock]) -> None:
+    for cb in blocks:
+        if cb.lang == "xml":
+            cb.text = reindent_xml(split_sibling_tags(cb.text))
+
+
 def find_anchor_paragraph(body, anchor: str):
     for bm in body.iter(w("bookmarkStart")):
         if bm.get(w("name")) != anchor:
@@ -692,6 +756,7 @@ def preprocess_docx(src: Path, work: Path, debug_dir: Path | None) -> Preprocess
         strip_edge_breaks(p)
     code_blocks = collapse_code_regions(body)
     apply_source_corrections(code_blocks)
+    reindent_code_blocks(code_blocks)
     titles = normalize_headings(body, entries, styles)
     remove_empty_headings(body, styles)
     mark_indentation(body, styles)

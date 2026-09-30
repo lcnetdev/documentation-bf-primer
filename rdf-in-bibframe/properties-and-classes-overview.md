@@ -10,7 +10,7 @@ A **datatype** property always has a literal as its object.
 
 ```xml
 <rdf:RDF>
-   <bf:Instance rdf:about="http://id.loc.gov/resources/instances/23036180">
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/23036180">
     <bf:editionStatement>First edition</bf:editionStatement>
     <bf:dimensions>24 cm</bf:dimensions>
   </bf:Instance>
@@ -23,7 +23,7 @@ Example (identified by URI): <https://id.loc.gov/resources/works/23036180.html>
 
 ```xml
 <rdf:RDF>
-   <bf:Work rdf:about="http://id.loc.gov/resources/works/23036180">
+  <bf:Work rdf:about="http://id.loc.gov/resources/works/23036180">
     <bf:geographicCoverage>
       <bf:GeographicCoverage rdf:about="http://id.loc.gov/vocabulary/geographicAreas/n-us-va">
         <rdfs:label xml:lang="en">Virginia</rdfs:label>
@@ -37,7 +37,7 @@ Example (blank node): <https://id.loc.gov/resources/instances/in00024328013.html
 
 ```xml
 <rdf:RDF>
-   <bf:Instance rdf:about="http://id.loc.gov/resources/instances/in00024328013">
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/in00024328013">
     <bf:note>
       <bf:Note rdf:nodeID="n1">
         <rdfs:label>Includes index.</rdfs:label>
@@ -71,7 +71,7 @@ Or
 <rdf:RDF>
   <bf:Work rdf:about="http://id.loc.gov/resources/works/23626846">
     <bf:genreForm>
-         <bf:GenreForm rdf:about="http://id.loc.gov/authorities/genreForms/gf2014026339">
+      <bf:GenreForm rdf:about="http://id.loc.gov/authorities/genreForms/gf2014026339">
         <rdfs:label xml:lang="en">Fiction</rdfs:label>
       </bf:GenreForm>
     </bf:genreForm>

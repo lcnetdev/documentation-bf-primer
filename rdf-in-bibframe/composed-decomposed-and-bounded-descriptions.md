@@ -61,7 +61,7 @@ A “decomposed” description, conversely, is more verbose, and, again, this mo
 <rdf:RDF>
   <bf:Work rdf:about="http://id.loc.gov/resources/works/23626846">
     <bf:genreForm>
-         <bf:GenreForm rdf:about="http://id.loc.gov/authorities/genreForms/gf2014026339">
+      <bf:GenreForm rdf:about="http://id.loc.gov/authorities/genreForms/gf2014026339">
         <rdfs:label xml:lang="en">Fiction</rdfs:label>
       </bf:GenreForm>
     </bf:genreForm>

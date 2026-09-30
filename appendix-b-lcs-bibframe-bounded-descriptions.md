@@ -12,9 +12,9 @@ All principal bf:Works, bf:Instances, and bf:Items are placed directly under the
 
 ```xml
 <rdf:RDF>
-    <bf:Instance/>
-    <bf:Work/>
-    <bf:Item/>
+  <bf:Instance/>
+  <bf:Work/>
+  <bf:Item/>
 </rdf:RDF>
 ```
 
@@ -22,7 +22,7 @@ When editing a Hub:
 
 ```xml
 <rdf:RDF>
-    <bf:Hub />
+  <bf:Hub />
 </rdf:RDF>
 ```
 
@@ -30,9 +30,10 @@ All Objects of Object Properties are “decomposed,” where possible, but with 
 
 ```xml
 <rdf:RDF>
-    <bf:Instance>
-    <dcterms:isPartOf rdf:resource="http://id.loc.gov/resources/instances" />    <bf:instanceOf rdf:resource="http://id.loc.gov/resources/works/24091701"/>
-    </bf:Instance>
+  <bf:Instance>
+    <dcterms:isPartOf rdf:resource="http://id.loc.gov/resources/instances" />
+    <bf:instanceOf rdf:resource="http://id.loc.gov/resources/works/24091701"/>
+  </bf:Instance>
 </rdf:RDF>
 ```
 
@@ -40,17 +41,18 @@ Object elements may include extra types. For example, if bf:Agent is an Object�
 
 ```xml
 <rdf:RDF>
-    <bf:Work>
+  <bf:Work>
     <bf:contribution>
-          <bf:Contribution>
+      <bf:Contribution>
         <bf:agent>
-            <bf:Agent rdf:about="http://id.loc.gov/vocabulary/organizations/dlc">
-                <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Organization"/> <rdfs:label>United States, Library of Congress</rdfs:label>
-            </bf:Agent>
+          <bf:Agent rdf:about="http://id.loc.gov/vocabulary/organizations/dlc">
+            <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Organization"/>
+            <rdfs:label>United States, Library of Congress</rdfs:label>
+          </bf:Agent>
         </bf:agent>
-               </bf:Contribution>
+      </bf:Contribution>
     </bf:contribution>
-    </bf:Work>
+  </bf:Work>
 </rdf:RDF>
 ```
 
@@ -62,29 +64,29 @@ Many Object elements will have an rdf:about attribute. These will almost always 
 
 ```xml
 <rdf:RDF>
-    <bf:Instance>
+  <bf:Instance>
     <bf:carrier>
-          <bf:Carrier rdf:about="http://id.loc.gov/vocabulary/carriers/nc">
+      <bf:Carrier rdf:about="http://id.loc.gov/vocabulary/carriers/nc">
         <rdfs:label>volume</rdfs:label>
         <bf:code>nc</bf:code>
-          </bf:Carrier>
+      </bf:Carrier>
     </bf:carrier>
-    </bf:Instance>
+  </bf:Instance>
 </rdf:RDF>
 ```
 
 ```xml
 <rdf:RDF>
-    <bf:Work>
+  <bf:Work>
     <bf:subject>
-           <bf:Organization rdf:about="http://id.loc.gov/rwo/agents/n81066718">
+      <bf:Organization rdf:about="http://id.loc.gov/rwo/agents/n81066718">
         <rdfs:label>Korea (North). Chosŏn Inmin'gun</rdfs:label>
         <bflc:marcKey>1101 $aKorea (North).$bChosŏn Inmin'gun</bflc:marcKey>
         <rdfs:label xml:lang="ko ">Korea (North). 조선 인민군</rdfs:label>
         <bflc:marcKey xml:lang="ko">4101 $aKorea (North).$b조선 인민군</bflc:marcKey>
-           </bf:Organization>
+      </bf:Organization>
     </bf:subject>
-    </bf:Work>
+  </bf:Work>
 </rdf:RDF>
 ```
 
@@ -96,18 +98,18 @@ For example in a Contribution node:
 
 ```xml
 <rdf:RDF>
-    <bf:Work>
+  <bf:Work>
     <bf:contribution>
-          <bf:Contribution>
+      <bf:Contribution>
         <bf:agent>
-              <bf:Agent rdf:about="http://id.loc.gov/rwo/agents/n80053135">
+          <bf:Agent rdf:about="http://id.loc.gov/rwo/agents/n80053135">
             <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Person"/>
             <rdfs:label>Geminiani, Francesco, 1687-1762</rdfs:label>
-              </bf:Agent>
+          </bf:Agent>
         </bf:agent>
-          </bf:Contribution>
+      </bf:Contribution>
     </bf:contribution>
-    </bf:Work>
+  </bf:Work>
 </rdf:RDF>
 ```
 
@@ -119,9 +121,9 @@ Embedded in rdf:RDF is an Instance, it’s Work, and (possibly) any Items, all a
 
 ```xml
 <rdf:RDF>
-    <bf:Instance/>
-    <bf:Work/>
-    <bf:Item/>
+  <bf:Instance/>
+  <bf:Work/>
+  <bf:Item/>
 </rdf:RDF>
 ```
 
@@ -133,9 +135,9 @@ The BIBFRAME Bounded Description will include any Secondary Instance resources. 
 
 ```xml
 <rdf:RDF>
-    <bf:Instance rdf:about="http://id.loc.gov/resources/instances/7735577"/>
-    <bf:Work rdf:about="http://id.loc.gov/resources/works/7735577"/>
-    <bf:Instance rdf:about="http://id.loc.gov/resources/instances/7735577-85X-1"/>
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/7735577"/>
+  <bf:Work rdf:about="http://id.loc.gov/resources/works/7735577"/>
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/7735577-85X-1"/>
 </rdf:RDF>
 ```
 
@@ -143,10 +145,10 @@ Items would be included in the Bounded Description also:
 
 ```xml
 <rdf:RDF>
-    <bf:Instance rdf:about="http://id.loc.gov/resources/instances/19873666"/>
-    <bf:Work rdf:about="http://id.loc.gov/resources/works/19873666"/>
-    <bf:Instance rdf:about="http://id.loc.gov/resources/instances/19873666-85X-1"/>
-    <bf:Item rdf:about="http://id.loc.gov/resources/items/19873666"/>
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/19873666"/>
+  <bf:Work rdf:about="http://id.loc.gov/resources/works/19873666"/>
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/19873666-85X-1"/>
+  <bf:Item rdf:about="http://id.loc.gov/resources/items/19873666"/>
 </rdf:RDF>
 ```
 
@@ -156,13 +158,13 @@ Embedded within each Instance and Item are links to their “parent” resource.
 
 ```xml
 <rdf:RDF>
-    <bf:Work rdf:about="http://id.loc.gov/resources/works/7735577" />
-    <bf:Instance rdf:about="http://id.loc.gov/resources/instances/19873666">
-        <bf:instanceOf rdf:resource="http://id.loc.gov/resources/works/7735577"/>
-    </bf:Instance>
-    <bf:Item>
-        <bf:itemOf rdf:resource="http://id.loc.gov/resources/instances/19873666"/>
-    </bf:Item>
+  <bf:Work rdf:about="http://id.loc.gov/resources/works/7735577" />
+  <bf:Instance rdf:about="http://id.loc.gov/resources/instances/19873666">
+    <bf:instanceOf rdf:resource="http://id.loc.gov/resources/works/7735577"/>
+  </bf:Instance>
+  <bf:Item>
+    <bf:itemOf rdf:resource="http://id.loc.gov/resources/instances/19873666"/>
+  </bf:Item>
 </rdf:RDF>
 ```
 
@@ -172,16 +174,16 @@ Hubs are sometimes referenced in a BD package. Usually only a label, marcKey, an
 
 ```xml
 <rdf:RDF>
-    <bf:Work>
-        <bf:expressionOf>
-            <bf:Hub rdf:about="http://id.loc.gov/resources/hubs/9c0ca213-7755-45ab-6031-a7dbca86053c">
-                  <bflc:aap>Sonata, keyboard instrument, F major</bflc:aap>
-                  <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Hub"/>
-                  <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Audio"/>
-                  <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/NotatedMusic"/>
-            </bf:Hub>
-        </bf:expressionOf>
-    </bf:Work>
+  <bf:Work>
+    <bf:expressionOf>
+      <bf:Hub rdf:about="http://id.loc.gov/resources/hubs/9c0ca213-7755-45ab-6031-a7dbca86053c">
+        <bflc:aap>Sonata, keyboard instrument, F major</bflc:aap>
+        <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Hub"/>
+        <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/Audio"/>
+        <rdf:type rdf:resource="http://id.loc.gov/ontologies/bibframe/NotatedMusic"/>
+      </bf:Hub>
+    </bf:expressionOf>
+  </bf:Work>
 </rdf:RDF>
 ```
 

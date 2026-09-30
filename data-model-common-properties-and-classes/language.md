@@ -60,32 +60,32 @@ Example (of a Work with libretto in Italian, sung or spoken text in German and I
     <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/ita"/>
     <bf:accompaniedBy>
       <bf:Work>
-            <rdf:type rdf:resource="http://id.loc.gov/vocabulary/resourceComponents/lib"/>
-            <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/ita"/>
+        <rdf:type rdf:resource="http://id.loc.gov/vocabulary/resourceComponents/lib"/>
+        <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/ita"/>
       </bf:Work>
     </bf:accompaniedBy>
     <bf:accompaniedBy>
       <bf:Work>
-            <rdf:type rdf:resource="http://id.loc.gov/vocabulary/resourceComponents/stx"/>
-            <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/ita"/>
+        <rdf:type rdf:resource="http://id.loc.gov/vocabulary/resourceComponents/stx"/>
+        <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/ita"/>
       </bf:Work>
     </bf:accompaniedBy>
     <bf:accompaniedBy>
       <bf:Work>
-            <rdf:type rdf:resource="http://id.loc.gov/vocabulary/resourceComponents/stx"/>
-            <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/ger"/>
+        <rdf:type rdf:resource="http://id.loc.gov/vocabulary/resourceComponents/stx"/>
+        <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/ger"/>
       </bf:Work>
     </bf:accompaniedBy>
     <bf:accompaniedBy>
       <bf:Work>
-            <rdf:type rdf:resource="http://id.loc.gov/vocabulary/resourceComponents/amt"/>
-            <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/ger"/>
+        <rdf:type rdf:resource="http://id.loc.gov/vocabulary/resourceComponents/amt"/>
+        <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/ger"/>
       </bf:Work>
     </bf:accompaniedBy>
     <bf:accompaniedBy>
       <bf:Work>
-            <rdf:type rdf:resource="http://id.loc.gov/vocabulary/resourceComponents/amt"/>
-            <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/eng"/>
+        <rdf:type rdf:resource="http://id.loc.gov/vocabulary/resourceComponents/amt"/>
+        <bf:language rdf:resource="http://id.loc.gov/vocabulary/languages/eng"/>
       </bf:Work>
     </bf:accompaniedBy>
   </bf:Work>
