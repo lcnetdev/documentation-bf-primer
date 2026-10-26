@@ -4,7 +4,7 @@ As noted in the main text earlier, the Library of Congress makes significant use
 
 Although you can serialize it in several ways, including the jsonld version - <https://id.loc.gov/resources/instances/24091701.bd.jsonld> - LC almost always uses the RDF/XML serialization. This Appendix will therefore focus on RDF/XML, but know that the general concepts, such as base resources types, apply regardless of serialization format.
 
-These are the specs for LC’s BIBFRME Bounded Description in the RDF/XML serialization.
+These are the specs for LC’s BIBFRAME Bounded Description in the RDF/XML serialization.
 
 ## High Level Overview
 
